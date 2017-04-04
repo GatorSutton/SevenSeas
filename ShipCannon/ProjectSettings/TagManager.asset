@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cannonball
   - water
+  - player
   layers:
   - Default
   - TransparentFX
