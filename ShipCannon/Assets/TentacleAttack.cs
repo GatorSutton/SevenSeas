@@ -11,6 +11,7 @@ public class TentacleAttack : MonoBehaviour
     private float x = 1;
     private float z = 1;
     private float t = 0;
+    private bool retracting = false;
 
     enum states
     {
@@ -39,6 +40,7 @@ public class TentacleAttack : MonoBehaviour
         if (Input.GetButtonDown("Shoot"))
         {
             t = 0;
+            retracting = false;
             x = Random.Range(-1f, 1f);
             z = Random.Range(-1f, 1f);
             targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0f, z)) * startRotation;
@@ -46,10 +48,22 @@ public class TentacleAttack : MonoBehaviour
 
 
         }
+        print(t);
+        if (t > .99) 
+        {
+            retracting = true;
+        }
 
-
-        t += Time.deltaTime;
-
+        if (retracting == false)
+        {
+            t += Time.deltaTime;
+            print("attacking");
+        }
+        else
+        {
+            t -= Time.deltaTime;
+            print("retracting");
+        }
 
 
     }
