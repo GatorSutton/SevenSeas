@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b80aae9c39b8e9f4c972d2188d1b9aeb
-timeCreated: 1491355965
+guid: 4b4d2e9d6a955d04e89c7f4296ef59d4
+timeCreated: 1491411275
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -62,7 +62,7 @@ ModelImporter:
     400052: Bone.023_end
     400054: //RootNode
     4300000: BezierCurve
-    7400000: TentacleIdle
+    7400000: TentacleAttack
     9500000: //RootNode
     13700000: BezierCurve
   materials:
@@ -87,17 +87,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: TentacleIdle
-      takeName: Armature|ArmatureAction
+      name: TentacleAttack
+      takeName: Armature|ArmatureAction.004
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

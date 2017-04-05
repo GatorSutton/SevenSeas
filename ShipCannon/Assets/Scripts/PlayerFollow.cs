@@ -9,7 +9,6 @@ public class PlayerFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_Camera = GetComponent<Camera>();
-        m_Camera.orthographicSize = 10;
     }
 	
 	// Update is called once per frame
@@ -21,6 +20,6 @@ public class PlayerFollow : MonoBehaviour {
     private void Move()
     {
         Vector3 playerPosition = m_Player.transform.position;
-        transform.position = new Vector3(playerPosition.x, 10f, playerPosition.z - 3);
+        transform.position = new Vector3(playerPosition.x, 10f, playerPosition.z - 45);
     }    
 }
