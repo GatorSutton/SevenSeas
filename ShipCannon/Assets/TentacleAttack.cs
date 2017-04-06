@@ -5,7 +5,10 @@ public class TentacleAttack : MonoBehaviour
 {
 
     public float m_Speed;
+    public Transform target;
 
+    private Animator anim;
+    private Transform parentAnimTransform;
     private Quaternion targetRotation;
     private Quaternion startRotation;
     private float x = 1;
@@ -22,8 +25,10 @@ public class TentacleAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        parentAnimTransform = GetComponentInParent<Transform>();
+        anim = GetComponentInParent<Animator>();
         startRotation = transform.rotation;
-        targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0, z)) * startRotation;
+       // targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0, z)) * startRotation;
     }
 
     // Update is called once per frame
@@ -33,22 +38,22 @@ public class TentacleAttack : MonoBehaviour
 
         //transform.Rotate(new Vector3(x, 0, z), Time.deltaTime);
 
-        transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t * m_Speed);
+        transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
 
 
         
         if (Input.GetButtonDown("Shoot"))
         {
+            Vector2 point = Random.insideUnitCircle;
+            float angle = Vector2.Angle(point, new Vector2(0, 1));
+            print(angle);
+            anim.Play("tentacleattack", -1, 0f);
             t = 0;
             retracting = false;
-            x = Random.Range(-1f, 1f);
-            z = Random.Range(-1f, 1f);
-            targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0f, z)) * startRotation;
-            
-
-
+            targetRotation = Quaternion.AngleAxis(90, new Vector3(point.x, 0f, point.y)) * startRotation;
+            parentAnimTransform.LookAt(target);
         }
-        print(t);
+
         if (t > .99) 
         {
             retracting = true;
@@ -56,13 +61,11 @@ public class TentacleAttack : MonoBehaviour
 
         if (retracting == false)
         {
-            t += Time.deltaTime;
-            print("attacking");
+            t += Time.deltaTime * m_Speed;
         }
         else
         {
-            t -= Time.deltaTime;
-            print("retracting");
+            t -= Time.deltaTime * m_Speed;
         }
 
 
