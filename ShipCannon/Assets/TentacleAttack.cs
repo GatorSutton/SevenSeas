@@ -5,10 +5,9 @@ public class TentacleAttack : MonoBehaviour
 {
 
     public float m_Speed;
-    public Transform target;
+    public Transform parentAnimTransform;
 
     private Animator anim;
-    private Transform parentAnimTransform;
     private Quaternion targetRotation;
     private Quaternion startRotation;
     private float x = 1;
@@ -25,7 +24,6 @@ public class TentacleAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        parentAnimTransform = GetComponentInParent<Transform>();
         anim = GetComponentInParent<Animator>();
         startRotation = transform.rotation;
        // targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0, z)) * startRotation;
@@ -51,7 +49,9 @@ public class TentacleAttack : MonoBehaviour
             t = 0;
             retracting = false;
             targetRotation = Quaternion.AngleAxis(90, new Vector3(point.x, 0f, point.y)) * startRotation;
-            parentAnimTransform.LookAt(target);
+            //parentAnimTransform.Rotate(0, 30, 0);
+
+            parentAnimTransform.LookAt(new Vector3(-point.x, 0f, -point.y));
         }
 
         if (t > .99) 
