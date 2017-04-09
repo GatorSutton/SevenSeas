@@ -7,6 +7,7 @@ public class TentacleAttack : MonoBehaviour
     public float m_Speed;
     public Transform parentAnimTransform;
 
+    private Transform parent;
     private Animator anim;
     private Quaternion targetRotation;
     private Quaternion startRotation;
@@ -26,7 +27,6 @@ public class TentacleAttack : MonoBehaviour
     {
         anim = GetComponentInParent<Animator>();
         startRotation = transform.rotation;
-       // targetRotation = Quaternion.AngleAxis(90, new Vector3(x, 0, z)) * startRotation;
     }
 
     // Update is called once per frame
@@ -49,9 +49,7 @@ public class TentacleAttack : MonoBehaviour
             t = 0;
             retracting = false;
             targetRotation = Quaternion.AngleAxis(90, new Vector3(point.x, 0f, point.y)) * startRotation;
-            //parentAnimTransform.Rotate(0, 30, 0);
-
-            parentAnimTransform.LookAt(new Vector3(-point.x, 0f, -point.y));
+            parentAnimTransform.LookAt(new Vector3(-point.x + parentAnimTransform.position.x, 0f, -point.y + parentAnimTransform.position.z));
         }
 
         if (t > .99) 
