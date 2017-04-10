@@ -17,11 +17,22 @@ public class SplashController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "cannonball")
+        print("collision");
+        if (collision.gameObject.tag == "cannonball") 
         {
             Instantiate(m_splashParticles, collision.gameObject.transform.position, Quaternion.Euler(-90f, 0f, 0f));
             Destroy(collision.gameObject);
             
+        }
+
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        print("collision");
+            if(collider.gameObject.tag == "tentacle")
+        {
+          //  Instantiate(m_splashParticles, collider.gameObject.transform.position, Quaternion.Euler(-90f, 0f, 0f));
         }
     }
 }

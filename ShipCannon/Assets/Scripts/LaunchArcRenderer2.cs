@@ -23,13 +23,13 @@ public class LaunchArcRenderer2 : MonoBehaviour
         spheres = new GameObject[resolution + 1];
         for(int i=0; i<=resolution; i++)
         {
-            GameObject clone = (GameObject) Instantiate(sphere, new Vector3(0,100,0), Quaternion.identity);
+            GameObject clone = (GameObject) Instantiate(sphere, new Vector3(i * 10,100,0), Quaternion.identity);
+            clone.transform.parent = gameObject.transform;
             Renderer r = clone.GetComponent<Renderer>();
             Color color = r.material.color;
             color.a = 1 - (float)i / (float)resolution;
             r.material.color = color;
             spheres[i] = clone;
-            clone.transform.position = new Vector3(i * 10, 100, 0);
         }
 
     }
