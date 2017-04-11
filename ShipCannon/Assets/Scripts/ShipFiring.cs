@@ -32,11 +32,14 @@ public class ShipFiring : MonoBehaviour {
 	    
         if(Input.GetButtonDown("Shoot"))
         {
+            print(timeStamp);
             if (timeStamp <= Time.time)
             {
                 timeStamp = Time.time + m_CoolDownPeriod;
                 Fire();
             }
+            
+     
         }
 
         m_CannonHorizontalInputValue = Input.GetAxis("CannonHorizontal");

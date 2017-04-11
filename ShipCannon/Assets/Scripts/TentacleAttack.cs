@@ -22,20 +22,16 @@ public class TentacleAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
 
-        
-        if (Input.GetButtonDown("Shoot"))
-        {
-            Vector2 point = Random.insideUnitCircle;
-            float angle = Vector2.Angle(point, new Vector2(0, 1));
-            anim.Play("tentacleattack", -1, 0f);
-            targetRotation = Quaternion.AngleAxis(90, new Vector3(point.x, 0f, point.y)) * startRotation;
-            parentAnimTransform.LookAt(new Vector3(-point.x + parentAnimTransform.position.x, 0f, -point.y + parentAnimTransform.position.z));
-        }
+    }
 
-
-
+    public void Attack(float x, float z)
+    {
+        Vector2 point = Random.insideUnitCircle;
+        float angle = Vector2.Angle(point, new Vector2(0, 1));
+        anim.Play("tentacleattack", -1, 0f);
+        targetRotation = Quaternion.AngleAxis(90, new Vector3(point.x, 0f, point.y)) * startRotation;
+        parentAnimTransform.LookAt(new Vector3(-z, 0f, x));                        //reverse x and z and negatve z to account for orientation of the animation
     }
 }
 
