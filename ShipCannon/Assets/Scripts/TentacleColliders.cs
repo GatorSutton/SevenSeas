@@ -3,12 +3,13 @@ using System.Collections;
 
 public class TentacleColliders : MonoBehaviour {
 
+
+
     private Component[] transforms;
 
 	// Use this for initialization
 	void Start () {
-        Renderer rend;
-        Bounds bounds;
+
 
         transforms = GetComponentsInChildren(typeof(Transform));
         /*
@@ -37,7 +38,10 @@ public class TentacleColliders : MonoBehaviour {
     {
         if(collision.gameObject.tag == "player")
         {
+            Invoke("SpawnPlayer", 5);
             Destroy(collision.gameObject);
         }
     }
+
+
 }

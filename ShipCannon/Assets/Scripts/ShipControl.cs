@@ -71,7 +71,6 @@ public class ShipControl : MonoBehaviour {
 
         if(Input.GetButtonDown("Anchor"))
         {
-            print(m_AnchorDown);
             m_AnchorDown = !m_AnchorDown;
         }
 

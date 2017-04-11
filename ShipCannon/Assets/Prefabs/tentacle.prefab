@@ -386,7 +386,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014227408036}
   - 54: {fileID: 54000012165863464}
-  - 114: {fileID: 114000010580207716}
   m_Layer: 0
   m_Name: Armature
   m_TagString: Untagged
@@ -852,7 +851,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013490385562}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.005, y: 0.03, z: 0.005}
@@ -864,7 +863,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011916785620}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.005, y: 0.05, z: 0.005}
@@ -876,7 +875,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011713384854}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.005, y: 0.03, z: 0.005}
@@ -911,17 +910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 0.9
   parentAnimTransform: {fileID: 4000012005813924}
---- !u!114 &114000010580207716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013542878712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a7b7f67f502379458ec05889e8f30b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137000014198387440
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

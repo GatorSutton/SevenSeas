@@ -17,7 +17,6 @@ public class SplashController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        print("collision");
         if (collision.gameObject.tag == "cannonball") 
         {
             Instantiate(m_splashParticles, collision.gameObject.transform.position, Quaternion.Euler(-90f, 0f, 0f));
@@ -29,7 +28,6 @@ public class SplashController : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        print("collision");
             if(collider.gameObject.tag == "tentacle")
         {
           //  Instantiate(m_splashParticles, collider.gameObject.transform.position, Quaternion.Euler(-90f, 0f, 0f));
