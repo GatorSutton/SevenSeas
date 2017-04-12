@@ -14,12 +14,12 @@ public class ArduinoListener : MonoBehaviour
     private ShipControl SC;
 
 
-
     SerialPort sp = new SerialPort("COM3", 9600);
 
     void Start()
     {
-        SC = GetComponent<ShipControl>();
+        
+        SC = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
 
         sp.Open();
         sp.ReadTimeout = 1;
@@ -35,7 +35,10 @@ public class ArduinoListener : MonoBehaviour
         {
         }
 
-        SC.RutterValue += m_turnData;
+        if (SC != null)
+        {
+            SC.RutterValue += m_turnData;
+        }
         m_turnData = 0;
     }
 }
