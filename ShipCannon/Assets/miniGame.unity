@@ -152,10 +152,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122388828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.07329904, y: -0.70329744, z: 0.07329904, w: 0.70329744}
+  m_LocalPosition: {x: 47.76, y: 24.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.9, y: -90, z: 0}
   m_Children: []
   m_Father: {fileID: 646234572}
   m_RootOrder: 4
@@ -229,6 +229,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 458904569}
   m_RootOrder: 0
+--- !u!1 &329785938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 329785939}
+  m_Layer: 0
+  m_Name: SkyCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329785939
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329785938}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 600, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &458904565
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,10 +958,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1507091536}
-  m_LocalRotation: {x: 0.21473525, y: -0, z: -0, w: 0.97667235}
-  m_LocalPosition: {x: 102.84, y: 34.5, z: -45.300007}
+  m_LocalRotation: {x: 0.13398618, y: 0, z: 0, w: 0.9909832}
+  m_LocalPosition: {x: 102.84, y: 22.8, z: -56.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 24.8, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.4, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -943,12 +971,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1507091536}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cc4b9a611790024a87cffeb38536ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 646234572}
+  m_Player: {fileID: 646234569}
+  m_PlayerFollow: {fileID: 122388829}
+  m_SkyCam: {fileID: 329785939}
 --- !u!1001 &1599351559
 Prefab:
   m_ObjectHideFlags: 0

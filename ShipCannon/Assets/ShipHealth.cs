@@ -14,10 +14,7 @@ public class ShipHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	        if(m_Alive == false)
-        {
-            Invoke("Respawn", 5);
-        }
+
 	}
 
     void OnTriggerEnter(Collider collider)
