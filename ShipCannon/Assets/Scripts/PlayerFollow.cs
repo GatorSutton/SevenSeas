@@ -38,14 +38,14 @@ public class PlayerFollow : MonoBehaviour {
         {
             if(t < 1)
             {
-                t += Time.deltaTime;
+                t += Time.deltaTime/4;
             }
         }
         else
         {
             if(t > 0)
             {
-                t -= Time.deltaTime;
+                t -= Time.deltaTime/4;
             }
         }
     }

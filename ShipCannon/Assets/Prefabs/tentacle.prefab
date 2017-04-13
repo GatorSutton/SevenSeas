@@ -113,7 +113,7 @@ GameObject:
   - 65: {fileID: 65000013625939854}
   m_Layer: 0
   m_Name: Bone.009
-  m_TagString: Untagged
+  m_TagString: tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - 65: {fileID: 65000013347117474}
   m_Layer: 0
   m_Name: Bone.002
-  m_TagString: Untagged
+  m_TagString: tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,7 +372,7 @@ GameObject:
   - 65: {fileID: 65000010367454796}
   m_Layer: 0
   m_Name: Bone.015
-  m_TagString: Untagged
+  m_TagString: tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,6 +388,23 @@ GameObject:
   - 54: {fileID: 54000012165863464}
   m_Layer: 0
   m_Name: Armature
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000013557658234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013358341572}
+  - 135: {fileID: 135000012798327270}
+  - 114: {fileID: 114000012108962638}
+  m_Layer: 0
+  m_Name: ShipDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,6 +649,7 @@ Transform:
   m_Children:
   - {fileID: 4000014227408036}
   - {fileID: 4000010385565384}
+  - {fileID: 4000013358341572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000012326915004
@@ -690,6 +708,19 @@ Transform:
   - {fileID: 4000010574470436}
   m_Father: {fileID: 4000013454872588}
   m_RootOrder: 0
+--- !u!4 &4000013358341572
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013557658234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012005813924}
+  m_RootOrder: 2
 --- !u!4 &4000013361950928
 Transform:
   m_ObjectHideFlags: 1
@@ -910,6 +941,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 0.9
   parentAnimTransform: {fileID: 4000012005813924}
+--- !u!114 &114000012108962638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013557658234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc28d3f53d448ea4aaaf69377633c650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CoolDownPeriod: 5
+--- !u!135 &135000012798327270
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013557658234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 9
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137000014198387440
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
