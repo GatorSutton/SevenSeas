@@ -5,6 +5,7 @@ public class ShipManager : MonoBehaviour {
 
    
     public Transform m_SpawnPoint;
+    public PlayerFollow PF;
 
     private GameObject m_Player;
     private Rigidbody m_Rigidbody;
@@ -24,11 +25,13 @@ public class ShipManager : MonoBehaviour {
         {
             respawning = true;
             Invoke("Respawn", 5);
+            PF.CameraToSky();
         } 
     }
 
     public void Respawn()
     {
+        PF.CameraToShip();
         m_Player.transform.position = m_SpawnPoint.position;
         m_Player.transform.rotation = m_SpawnPoint.rotation;
 

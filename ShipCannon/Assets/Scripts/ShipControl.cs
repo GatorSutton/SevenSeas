@@ -78,6 +78,10 @@ public class ShipControl : MonoBehaviour {
             {
                 PF.CameraToLeft();
             }
+            else
+            {
+                PF.CameraToShip();
+            }
         }
 
 

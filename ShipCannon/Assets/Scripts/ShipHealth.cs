@@ -5,6 +5,7 @@ public class ShipHealth : MonoBehaviour {
 
     public Transform m_SpawnPoint;
 
+
     private bool m_Alive = true;
 
 	// Use this for initialization
@@ -26,12 +27,4 @@ public class ShipHealth : MonoBehaviour {
         }
     }
 
-    public void Respawn()
-    {
-        gameObject.transform.position = m_SpawnPoint.position;
-        gameObject.transform.rotation = m_SpawnPoint.rotation;
-
-        gameObject.SetActive(true);
-        m_Alive = true;
-    }
 }
