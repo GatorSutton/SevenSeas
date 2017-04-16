@@ -10,7 +10,9 @@ public class ShipControl : MonoBehaviour {
     public float m_RutterMinValue;
     public float m_RutterMaxValue;
     public float m_AnchorSpeed;
- 
+
+    public PlayerFollow PF;
+
 
 
     private Rigidbody m_Rigidbody;
@@ -69,9 +71,13 @@ public class ShipControl : MonoBehaviour {
             }
         }
 
-        if(Input.GetButtonDown("Anchor"))
+        if (Input.GetButtonDown("Anchor"))
         {
             m_AnchorDown = !m_AnchorDown;
+            if (m_AnchorDown)
+            {
+                PF.CameraToLeft();
+            }
         }
 
 

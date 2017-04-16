@@ -3,6 +3,8 @@ using System.Collections;
 
 public class KrakenControl : MonoBehaviour {
 
+    public float speed;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +12,6 @@ public class KrakenControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        transform.Rotate(Vector3.up, Time.deltaTime * speed);
 	}
 }
