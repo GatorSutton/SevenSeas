@@ -10,11 +10,13 @@ public class ShipControl : MonoBehaviour {
     public float m_RutterMinValue;
     public float m_RutterMaxValue;
     public float m_AnchorSpeed;
+   
 
     public PlayerFollow PF;
 
 
-
+    private ShipTreasure ST;
+    private float m_TreasureSpeedInhibitor;
     private Rigidbody m_Rigidbody;
     private float m_SailInputValue;
     private float m_TurnInputValue;
@@ -47,7 +49,7 @@ public class ShipControl : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-	
+        ST = GetComponent<ShipTreasure>();
 	}
 	
 	// Update is called once per frame
@@ -94,11 +96,12 @@ public class ShipControl : MonoBehaviour {
         Move();
         Turn();
         AnchorControl();
+        WeightOnShip();
     }
 
     private void Move()
     {
-        Vector3 movement = -transform.right * m_SailValue * m_Speed * Time.deltaTime * m_AnchorMove;
+        Vector3 movement = -transform.right * m_SailValue * m_Speed * Time.deltaTime * m_AnchorMove * m_TreasureSpeedInhibitor;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
     }
 
@@ -132,6 +135,18 @@ public class ShipControl : MonoBehaviour {
             m_Time = 0;
             m_AnchorMove = 1f;
             m_AnchorTurn = 1f;
+        }
+    }
+
+    private void WeightOnShip()
+    {
+        if(ST.hasTreasure)
+        {
+            m_TreasureSpeedInhibitor = .7f;
+        }
+        else
+        {
+            m_TreasureSpeedInhibitor = 1f;
         }
     }
 

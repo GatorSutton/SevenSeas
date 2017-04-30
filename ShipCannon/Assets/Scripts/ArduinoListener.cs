@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.IO.Ports;
-using System;
+using System.Text;
 
 public class ArduinoListener : MonoBehaviour
 {
@@ -10,11 +10,13 @@ public class ArduinoListener : MonoBehaviour
         get { return m_turnData; }
         set { m_turnData = value; }
     }
-    private int m_turnData;
+    private int m_turnData = 0;
+    string messageData;
+    byte[] messageDataConverted;
     private ShipControl SC;
 
 
-    SerialPort sp = new SerialPort("COM3", 9600);
+    SerialPort sp = new SerialPort("COM4", 9600);
 
     void Start()
     {
@@ -29,7 +31,9 @@ public class ArduinoListener : MonoBehaviour
     {
         try
         {
-            m_turnData = Int32.Parse(sp.ReadLine());
+            //m_turnData = Int32.Parse(sp.ReadLine());
+            messageData = sp.ReadLine();
+            messageDataConverted = Encoding.ASCII.GetBytes(messageData);
         }
         catch (System.Exception)
         {
@@ -40,5 +44,7 @@ public class ArduinoListener : MonoBehaviour
             SC.RutterValue += m_turnData;
         }
         m_turnData = 0;
+
+        print(messageDataConverted[0]);
     }
 }
