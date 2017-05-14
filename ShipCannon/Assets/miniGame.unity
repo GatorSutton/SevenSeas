@@ -753,7 +753,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 571376997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1464125c0f264474c9d4151f3fe9cb1c, type: 3}
   m_Name: 
@@ -1121,6 +1121,15 @@ Prefab:
         type: 2}
       propertyPath: m_LaunchVelocity
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013063486000, guid: 020835fa085945943b6c69349ad77ba5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011787459500, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
+      propertyPath: m_TagString
+      value: cannon
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000011017282776, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
@@ -1692,6 +1701,15 @@ Prefab:
       propertyPath: m_LaunchVelocity
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011787459500, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013063486000, guid: 020835fa085945943b6c69349ad77ba5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000011017282776, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
@@ -2173,6 +2191,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 048fb058a906a4e43a1f0c58e56f983c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1771277206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1771277208}
+  - component: {fileID: 1771277207}
+  m_Layer: 0
+  m_Name: SampleCustomDelimiter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1771277207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771277206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03449448d7d9296469848d9241ae0a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialController: {fileID: 1924378888}
+--- !u!4 &1771277208
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771277206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 185.99272, y: 56.175674, z: -106.04634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1827487958
 Prefab:
   m_ObjectHideFlags: 0
@@ -2312,10 +2371,39 @@ Prefab:
       propertyPath: m_LaunchVelocity
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013063486000, guid: 020835fa085945943b6c69349ad77ba5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65000011017282776, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 020835fa085945943b6c69349ad77ba5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1851753009 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011787459500, guid: 020835fa085945943b6c69349ad77ba5,
+    type: 2}
+  m_PrefabInternal: {fileID: 652095575}
+--- !u!114 &1851753013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851753009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f335af7f73b8c846bbe1790ef9e46f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Cannonball: {fileID: 54000012653625006, guid: 04961b27faf0f74478c762ca5f41e0e6,
+    type: 2}
+  m_FireTransform: {fileID: 1943431072}
+  m_LaunchVelocity: 60
+  m_CoolDownPeriod: 1
+  m_CannonTurnSpeed: 50
+  m_MaxCannonTurn: 45
+  ship: {fileID: 646234572}
 --- !u!4 &1898980634 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: e812f3bdbc7c1224792bf3be780dac77, type: 3}
@@ -2382,6 +2470,57 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 048fb058a906a4e43a1f0c58e56f983c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1924378887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1924378889}
+  - component: {fileID: 1924378888}
+  m_Layer: 0
+  m_Name: SerialController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1924378888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924378887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223f0e4bcadad324e9ab9a12c33326a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM3
+  baudRate: 9600
+  messageListener: {fileID: 0}
+  reconnectionDelay: 1000
+  maxUnreadMessages: 10
+  separator: 255
+--- !u!4 &1924378889
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924378887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 185.99272, y: 56.175674, z: -106.04634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1943431072 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000014187871160, guid: 020835fa085945943b6c69349ad77ba5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1166911029}
 --- !u!1001 &1990972641
 Prefab:
   m_ObjectHideFlags: 0

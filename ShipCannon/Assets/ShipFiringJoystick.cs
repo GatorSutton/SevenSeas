@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipFiring : MonoBehaviour {
+public class ShipFiringJoystick : MonoBehaviour
+{
 
     public Rigidbody m_Cannonball;
     public Transform m_FireTransform;
@@ -28,7 +29,7 @@ public class ShipFiring : MonoBehaviour {
     public int VerticalCannonInput
     {
         set { m_VerticalCannonInput = value; }
-        
+
     }
 
 
@@ -38,13 +39,14 @@ public class ShipFiring : MonoBehaviour {
         m_VerticalRelativeAngle = 0;
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
         VerticalTurn();
         HorizontalTurn();
-	    
-        if(Input.GetButtonDown("Shoot"))
+
+        if (Input.GetButtonDown("Shoot"))
         {
             print(timeStamp);
             if (timeStamp <= Time.time)
@@ -52,12 +54,10 @@ public class ShipFiring : MonoBehaviour {
                 timeStamp = Time.time + m_CoolDownPeriod;
                 Fire();
             }
-            
-     
+
+
         }
 
-        m_CannonHorizontalInputValue = Input.GetAxis("CannonHorizontal");
-        m_CannonVerticalInputValue = Input.GetAxis("CannonVertical");
 
     }
 
@@ -76,47 +76,19 @@ public class ShipFiring : MonoBehaviour {
 
     private void HorizontalTurn()
     {
-        
-        float turnAngle = transform.rotation.eulerAngles.y;
-
-        if(m_HorizontalRelativeAngle > 45)
-        {
-          m_CannonHorizontalInputValue = Mathf.Min(m_CannonHorizontalInputValue, 0);
-        }
-
-        if (m_HorizontalRelativeAngle < - 45)
-        {
-            m_CannonHorizontalInputValue = Mathf.Max(m_CannonHorizontalInputValue, 0);
-        }
-
-        m_HorizontalRelativeAngle += (m_CannonHorizontalInputValue * m_CannonTurnSpeed * Time.deltaTime);
-
+        float ratio = Mathf.InverseLerp(0, 1024, m_HorizontalCannonInput);
+        m_HorizontalRelativeAngle = -45 + ratio * 90;
     }
 
     private void VerticalTurn()
     {
-
-        float turnAngle = transform.rotation.eulerAngles.x;
-
-        if (turnAngle < 330 && turnAngle > 50)
-        {
-            m_CannonVerticalInputValue = Mathf.Max(m_CannonVerticalInputValue, 0);
-        }
-
-        if (turnAngle > 0 && turnAngle < 300)
-        {
-            m_CannonVerticalInputValue = Mathf.Min(m_CannonVerticalInputValue, 0);
-        }
-
-        m_VerticalRelativeAngle += (m_CannonVerticalInputValue * m_CannonTurnSpeed * Time.deltaTime);
-
+        float ratio = Mathf.InverseLerp(0, 1024, m_VerticalCannonInput);
+        m_VerticalRelativeAngle = -90 - ratio * 90;
     }
 
     private void KeepUpWithShip()
     {
-        float angle = ship.eulerAngles.y;
-
-        //transform.position = ship.position + new  Vector3(Mathf.Sin(angle * Mathf.Deg2Rad),1f,Mathf.Cos(angle * Mathf.Deg2Rad));
+        //float angle = ship.eulerAngles.y;
         transform.rotation = Quaternion.Euler(0f, m_HorizontalRelativeAngle, 0f) * ship.rotation;
         transform.Rotate(m_VerticalRelativeAngle, 0f, 0f, Space.Self);
     }
