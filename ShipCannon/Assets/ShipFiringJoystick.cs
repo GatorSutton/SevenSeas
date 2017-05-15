@@ -83,7 +83,7 @@ public class ShipFiringJoystick : MonoBehaviour
     private void VerticalTurn()
     {
         float ratio = Mathf.InverseLerp(0, 1024, m_VerticalCannonInput);
-        m_VerticalRelativeAngle = -90 - ratio * 90;
+        m_VerticalRelativeAngle = -30 * ratio;
     }
 
     private void KeepUpWithShip()

@@ -20,17 +20,6 @@ public class ShipFiring : MonoBehaviour {
     private int m_HorizontalCannonInput;
     private int m_VerticalCannonInput;
 
-    public int HorizontalCannonInput
-    {
-        set { m_HorizontalCannonInput = value; }
-    }
-
-    public int VerticalCannonInput
-    {
-        set { m_VerticalCannonInput = value; }
-        
-    }
-
 
     void Start()
     {
@@ -90,6 +79,7 @@ public class ShipFiring : MonoBehaviour {
         }
 
         m_HorizontalRelativeAngle += (m_CannonHorizontalInputValue * m_CannonTurnSpeed * Time.deltaTime);
+   
 
     }
 
