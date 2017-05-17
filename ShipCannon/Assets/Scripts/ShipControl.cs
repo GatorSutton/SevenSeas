@@ -59,17 +59,14 @@ public class ShipControl : MonoBehaviour {
 
         if(Input.GetButtonDown("SailUp"))
         {
-            if (m_SailValue < m_SailMaxValue)
-            {
-                m_SailValue++;
-            }
+            m_SailValue = m_SailMaxValue;
         }
 
         if(Input.GetButtonDown("SailDown"))
         {
             if (m_SailValue > m_SailMinValue)
             {
-                m_SailValue--;
+                m_SailValue = m_SailMinValue;
             }
         }
 
@@ -107,7 +104,9 @@ public class ShipControl : MonoBehaviour {
 
     private void Turn()
     {
-
+        m_RutterValue = Mathf.Max(m_RutterValue, m_RutterMinValue);
+        m_RutterValue = Mathf.Min(m_RutterValue, m_RutterMaxValue);
+        
         float turn = m_RutterValue * m_TurnSpeed * Time.deltaTime * m_AnchorTurn;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
