@@ -10,6 +10,7 @@ public class ShipControl : MonoBehaviour {
     public float m_RutterMinValue;
     public float m_RutterMaxValue;
     public float m_AnchorSpeed;
+    public float m_AnchorCooldownPeriod;
    
 
     public PlayerFollow PF;
@@ -34,8 +35,8 @@ public class ShipControl : MonoBehaviour {
     }
 
     private float m_RutterValue = 0;
-    
-  
+
+    private float anchorTimeStamp = 0;
 
     
     
@@ -72,14 +73,18 @@ public class ShipControl : MonoBehaviour {
 
         if (Input.GetButtonDown("Anchor"))
         {
-            m_AnchorDown = !m_AnchorDown;
-            if (m_AnchorDown)
+            if (anchorTimeStamp <= Time.time)
             {
-                PF.CameraToLeft();
-            }
-            else
-            {
-                PF.CameraToShip();
+                anchorTimeStamp = Time.time + m_AnchorCooldownPeriod;
+                m_AnchorDown = !m_AnchorDown;
+                if (m_AnchorDown)
+                {
+                    PF.CameraToLeft();
+                }
+                else
+                {
+                    PF.CameraToShip();
+                }
             }
         }
 

@@ -25,12 +25,4 @@ public class SplashController : MonoBehaviour {
         }
 
     }
-
-    void OnTriggerEnter(Collider collider)
-    {
-            if(collider.gameObject.tag == "tentacle")
-        {
-          //  Instantiate(m_splashParticles, collider.gameObject.transform.position, Quaternion.Euler(-90f, 0f, 0f));
-        }
-    }
 }

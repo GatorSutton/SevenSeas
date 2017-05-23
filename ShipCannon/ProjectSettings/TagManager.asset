@@ -9,6 +9,9 @@ TagManager:
   - player
   - tentacle
   - cannon
+  - player2
+  - cannon1
+  - player1
   layers:
   - Default
   - TransparentFX

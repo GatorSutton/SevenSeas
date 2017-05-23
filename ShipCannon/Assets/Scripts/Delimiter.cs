@@ -26,7 +26,7 @@ public class Delimiter : MonoBehaviour
         serialController = GameObject.Find("SerialController").GetComponent<SerialControllerCustomDelimiter>();
 
         SC = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
-        SF = GameObject.FindGameObjectWithTag("cannon").GetComponent<ShipFiringJoystick>();
+        SF = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
 
         Debug.Log("Press the SPACEBAR to execute some action");
     }

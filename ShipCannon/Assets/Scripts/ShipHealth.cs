@@ -27,4 +27,14 @@ public class ShipHealth : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "cannonball")
+        {
+            gameObject.SetActive(false);
+            m_Alive = false;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
