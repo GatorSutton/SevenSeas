@@ -71,7 +71,7 @@ public class ShipControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("Anchor"))
+        if(Input.GetButtonDown("Anchor"))
         {
             if (anchorTimeStamp <= Time.time)
             {

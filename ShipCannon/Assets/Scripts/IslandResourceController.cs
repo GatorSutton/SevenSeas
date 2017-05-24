@@ -13,7 +13,7 @@ public class IslandResourceController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rend = GetComponent<Renderer>();
-   //     rend.material = materials[0];
+        rend.material = materials[0];
 	}
 	
 	// Update is called once per frame
@@ -30,7 +30,7 @@ public class IslandResourceController : MonoBehaviour {
             {
                 ST.GainTreasure();
                 hasTreasure = false;
-      //          rend.material = materials[1];
+                rend.material = materials[1];
             }
         }
     }
