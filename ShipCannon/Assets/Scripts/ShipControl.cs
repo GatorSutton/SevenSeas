@@ -11,12 +11,12 @@ public class ShipControl : MonoBehaviour {
     public float m_RutterMaxValue;
     public float m_AnchorSpeed;
     public float m_AnchorCooldownPeriod;
-   
 
     public PlayerFollow PF;
 
 
     private ShipTreasure ST;
+
     private float m_TreasureSpeedInhibitor;
     private Rigidbody m_Rigidbody;
     private float m_SailInputValue;
@@ -87,8 +87,6 @@ public class ShipControl : MonoBehaviour {
                 }
             }
         }
-
-
 
 
     }

@@ -12,6 +12,7 @@ public class ShipFiringJoystick : MonoBehaviour
     public float m_MaxCannonTurn;
     public Transform ship;
 
+    private float alternateSide = 0;
     private float timeStamp = 0;
     private float m_CannonHorizontalInputValue;
     private float m_CannonVerticalInputValue;
@@ -58,6 +59,11 @@ public class ShipFiringJoystick : MonoBehaviour
 
         }
 
+        if (Input.GetButtonDown("Switch"))
+        {
+            alternateSide = 180;
+        }
+
 
     }
 
@@ -77,7 +83,7 @@ public class ShipFiringJoystick : MonoBehaviour
     private void HorizontalTurn()
     {
         float ratio = Mathf.InverseLerp(0, 1024, m_HorizontalCannonInput);
-        m_HorizontalRelativeAngle = -45 + ratio * 90;
+        m_HorizontalRelativeAngle = -45 + ratio * 90 + alternateSide;
     }
 
     private void VerticalTurn()

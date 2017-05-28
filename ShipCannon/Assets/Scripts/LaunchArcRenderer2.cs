@@ -92,6 +92,11 @@ public class LaunchArcRenderer2 : MonoBehaviour
         return angle;
     }
 
+    public void SwitchSides()
+    {
+        
+    }
+
 
 
 

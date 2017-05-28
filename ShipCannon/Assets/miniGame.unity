@@ -203,6 +203,7 @@ MonoBehaviour:
   m_RutterMaxValue: 16
   m_AnchorSpeed: 1
   m_AnchorCooldownPeriod: 0
+  LAR: {fileID: 0}
   PF: {fileID: 0}
 --- !u!4 &84470781
 Transform:
@@ -1428,6 +1429,7 @@ MonoBehaviour:
   m_RutterMaxValue: 16
   m_AnchorSpeed: 1
   m_AnchorCooldownPeriod: 0
+  LAR: {fileID: 980327765}
   PF: {fileID: 1507091542}
 --- !u!4 &646234572
 Transform:
