@@ -11,6 +11,7 @@ public class ShipFiringJoystick : MonoBehaviour
     public float m_CannonTurnSpeed;
     public float m_MaxCannonTurn;
     public Transform ship;
+    public bool isLeftSide;
 
     private float alternateSide = 0;
     private float timeStamp = 0;
@@ -36,6 +37,10 @@ public class ShipFiringJoystick : MonoBehaviour
 
     void Start()
     {
+        if(isLeftSide)
+        {
+            alternateSide = 180;
+        }
         m_HorizontalRelativeAngle = 0;
         m_VerticalRelativeAngle = 0;
     }
@@ -59,10 +64,6 @@ public class ShipFiringJoystick : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Switch"))
-        {
-            alternateSide = 180;
-        }
 
 
     }
@@ -94,7 +95,6 @@ public class ShipFiringJoystick : MonoBehaviour
 
     private void KeepUpWithShip()
     {
-        //float angle = ship.eulerAngles.y;
         transform.rotation = Quaternion.Euler(0f, m_HorizontalRelativeAngle, 0f) * ship.rotation;
         transform.Rotate(m_VerticalRelativeAngle, 0f, 0f, Space.Self);
     }
