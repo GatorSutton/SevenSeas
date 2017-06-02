@@ -109,6 +109,7 @@ public class ShipControl : MonoBehaviour {
     {
         m_RutterValue = Mathf.Max(m_RutterValue, m_RutterMinValue);
         m_RutterValue = Mathf.Min(m_RutterValue, m_RutterMaxValue);
+        print(m_RutterValue);
         
         float turn = m_RutterValue * m_TurnSpeed * Time.deltaTime * m_AnchorTurn;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
