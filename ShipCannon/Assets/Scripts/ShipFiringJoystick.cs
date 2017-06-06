@@ -4,6 +4,7 @@ using System.Collections;
 public class ShipFiringJoystick : MonoBehaviour
 {
 
+    public int m_PlayerNumber = 1;
     public Rigidbody m_Cannonball;
     public Transform m_FireTransform;
     public float m_LaunchVelocity = 30f;

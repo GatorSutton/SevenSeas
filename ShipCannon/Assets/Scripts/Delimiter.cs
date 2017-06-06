@@ -17,18 +17,18 @@ public class Delimiter : MonoBehaviour
 {
     public SerialControllerCustomDelimiter serialController;
 
-    private ShipControl SC;
-    private ShipFiringJoystick SF;
+    private ShipControl SC1;
+    private ShipFiringJoystick SF1;
+    private ShipControl SC2;
+    private ShipFiringJoystick SF2;
 
     // Initialization
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialControllerCustomDelimiter>();
 
-        SC = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
-        SF = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
-
-        Debug.Log("Press the SPACEBAR to execute some action");
+       // SC1 = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
+       // SF1 = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
     }
 
     // Executed each frame
@@ -65,12 +65,21 @@ public class Delimiter : MonoBehaviour
 
         if (message.Length == 5)
         {
-            SC.RutterValue += (float)(message[0] - 128);
-            message[0] = 128;
-            SF.HorizontalCannonInput = message[1] * 256 + message[2];
-            SF.VerticalCannonInput = message[3] * 256 + message[4];
+            if (SC1 != null && SF1 != null)
+            {
+                SC1.RutterValue += (float)(message[0] - 128);
+                message[0] = 128;
+                SF1.HorizontalCannonInput = message[1] * 256 + message[2];
+                SF1.VerticalCannonInput = message[3] * 256 + message[4];
+            }
         }
 
 
+    }
+
+    public void initalize()
+    {
+        SC1 = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
+        SF1 = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
     }
 }

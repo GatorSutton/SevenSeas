@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ShipControl : MonoBehaviour {
 
+    public int m_PlayerNumber = 1;
     public float m_Speed = 10f;
     public float m_TurnSpeed = 10f;
     public float m_SailMinValue;
@@ -12,7 +13,7 @@ public class ShipControl : MonoBehaviour {
     public float m_AnchorSpeed;
     public float m_AnchorCooldownPeriod;
 
-    public PlayerFollow PF;
+    public CameraControl PF;
 
 
     private ShipTreasure ST;

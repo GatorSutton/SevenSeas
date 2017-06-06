@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerFollow : MonoBehaviour {
+public class CameraControl : MonoBehaviour {
 
     public GameObject m_Player;
     public Transform m_PlayerFollow;
@@ -19,7 +19,8 @@ public class PlayerFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_Camera = GetComponent<Camera>();
-        m_Target = m_PlayerFollow;
+        // m_Target = m_PlayerFollow;
+        m_Target = m_SkyCam;
         m_PreviousTarget = m_SkyCam;
     }
 	
