@@ -45,7 +45,7 @@ public class ShipManager
     public void Setup()
     {
         m_Control = m_Instance.GetComponent<ShipControl>();
-        m_FiringJoystick = m_Instance.GetComponent<ShipFiringJoystick>();                                   //find script in children of object
+        m_FiringJoystick = m_Instance.GetComponentInChildren<ShipFiringJoystick>();                                   //find script in children of object
 
         m_Control.m_PlayerNumber = m_PlayerNumber;
         m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
@@ -56,21 +56,20 @@ public class ShipManager
         CC.CameraToShip();
         m_Player.transform.position = m_SpawnPoint.position;
         m_Player.transform.rotation = m_SpawnPoint.rotation;
-
         m_Player.SetActive(true);
         respawning = false;
     }
 */
     public void EnableControl()
     {
-        m_Rigidbody.isKinematic = false;
+        //m_Rigidbody.isKinematic = false;
         m_Control.enabled = true;
         m_FiringJoystick.enabled = true;
     }
 
     public void DisableControl()
     {
-        m_Rigidbody.isKinematic = true;
+        //m_Rigidbody.isKinematic = true;
         m_Control.enabled = false;
         m_FiringJoystick.enabled = false;
     }

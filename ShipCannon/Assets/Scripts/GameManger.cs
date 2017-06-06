@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour {
 
+    public Delimiter delimiter;
     public float m_StartDelay = 3f;
     public float m_EndDelay = 3f;
     public Text m_MessageText;
     public GameObject m_ShipPrefab;
     public ShipManager[] m_Ships;
+
 
     private WaitForSeconds m_StartWait;
     private WaitForSeconds m_EndWait;
@@ -21,7 +23,6 @@ public class GameManger : MonoBehaviour {
         m_StartWait = new WaitForSeconds(m_StartDelay);
         m_EndWait = new WaitForSeconds(m_EndDelay);
 
-        SpawnAllShips();
         StartCoroutine(GameLoop());
     }
 	
@@ -43,7 +44,8 @@ public class GameManger : MonoBehaviour {
     {
         SpawnAllShips();
         DisableAllShips();
-        m_MessageText.text = "BLOOD OR PLUNDER!";
+        delimiter.initalize();
+        m_MessageText.text = "PLUNDER!";
         yield return m_StartWait;
     }
 
