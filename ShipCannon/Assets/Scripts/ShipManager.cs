@@ -50,16 +50,16 @@ public class ShipManager
         m_Control.m_PlayerNumber = m_PlayerNumber;
         m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
     }
-/*
+    
     public void Respawn()
     {
         CC.CameraToShip();
-        m_Player.transform.position = m_SpawnPoint.position;
-        m_Player.transform.rotation = m_SpawnPoint.rotation;
-        m_Player.SetActive(true);
+        m_Instance.transform.position = m_SpawnPoint.position;
+        m_Instance.transform.rotation = m_SpawnPoint.rotation;
+        m_Instance.SetActive(true);
         respawning = false;
     }
-*/
+    
     public void EnableControl()
     {
         //m_Rigidbody.isKinematic = false;

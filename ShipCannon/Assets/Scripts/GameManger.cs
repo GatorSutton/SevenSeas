@@ -46,6 +46,8 @@ public class GameManger : MonoBehaviour {
         SpawnAllShips();
         DisableAllShips();
         delimiter.initalize();
+        CC.initialize();
+        CC.CameraToShip();
         m_MessageText.text = "PLUNDER!";
         yield return m_StartWait;
     }
@@ -56,8 +58,11 @@ public class GameManger : MonoBehaviour {
 
         m_MessageText.text = string.Empty;
 
+
         while(OneTeamLeft() || TreasureVictory())
         {
+            print("testing");
+            RespawnShips();
             yield return null;
         }
     }
@@ -67,6 +72,7 @@ public class GameManger : MonoBehaviour {
         DisableAllShips();
         m_GameWinner = getGameWinner();
         m_MessageText.text = gameOverMessage();
+        print("gg");
         yield return m_EndWait;
     }
 
@@ -152,6 +158,17 @@ public class GameManger : MonoBehaviour {
         for (int i = 0; i < m_Ships.Length; i++)
         {
             m_Ships[i].EnableControl();
+        }
+    }
+
+    private void RespawnShips()
+    {
+        for (int i = 0; i < m_Ships.Length; i++)
+        {
+            if(m_Ships[i].m_Instance.activeSelf == false)
+            {
+                m_Ships[i].Respawn();
+            }
         }
     }
 

@@ -17,9 +17,8 @@ public class CameraControl : MonoBehaviour {
     private float t = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
         m_Camera = GetComponent<Camera>();
-        // m_Target = m_PlayerFollow;
         m_Target = m_SkyCam;
         m_PreviousTarget = m_SkyCam;
     }
@@ -94,8 +93,20 @@ public class CameraControl : MonoBehaviour {
         m_PreviousTarget = holderTransform;
     }
 
-    public void initalize()
+    public void initialize()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("player");
+        foreach(Transform t in player.transform)
+        {
+            if(t.name == "CameraBehind")
+            {
+                m_PlayerFollow = t.transform;
+            }
+            if(t.name == "CameraLeftSide")
+            {
+                m_PlayerLeft = t.transform;
+            }
+        }
 
     }
     
