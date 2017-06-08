@@ -93,6 +93,11 @@ public class CameraControl : MonoBehaviour {
         m_Target = m_PlayerLeft;
         m_PreviousTarget = holderTransform;
     }
+
+    public void initalize()
+    {
+
+    }
     
         
 }

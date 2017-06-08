@@ -317,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 1682928629966080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.75, z: 4}
-  m_LocalScale: {x: 1.0000005, y: 1, z: 5.000002}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1}
   m_Children:
   - {fileID: 4324486717971232}
   - {fileID: 4791157136508410}
@@ -360,7 +360,7 @@ Transform:
   m_GameObject: {fileID: 1674434225946904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.20000002, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4562180384209344}
   m_RootOrder: 1
@@ -398,7 +398,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449045253950340}
   m_LocalRotation: {x: 0, y: 0.9999942, z: -0, w: -0.003403326}
-  m_LocalPosition: {x: -729, y: 0, z: 795}
+  m_LocalPosition: {x: -1060.4442, y: 1.9649842, z: 424.78796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445936953232118}
@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f335af7f73b8c846bbe1790ef9e46f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerNumber: 1
   m_Cannonball: {fileID: 54000012653625006, guid: 04961b27faf0f74478c762ca5f41e0e6,
     type: 2}
   m_FireTransform: {fileID: 4324486717971232}
@@ -944,6 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f335af7f73b8c846bbe1790ef9e46f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerNumber: 1
   m_Cannonball: {fileID: 54000012653625006, guid: 04961b27faf0f74478c762ca5f41e0e6,
     type: 2}
   m_FireTransform: {fileID: 4217751858752670}
@@ -993,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5926981af27cd4e4493d2f883d9d040c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerNumber: 1
   m_Speed: 2
   m_TurnSpeed: 0.01
   m_SailMinValue: 1

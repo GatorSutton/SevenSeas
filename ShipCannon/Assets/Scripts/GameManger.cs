@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManger : MonoBehaviour {
 
     public Delimiter delimiter;
+    public CameraControl CC;
     public float m_StartDelay = 3f;
     public float m_EndDelay = 3f;
     public Text m_MessageText;
