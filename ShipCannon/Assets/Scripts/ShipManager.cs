@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.UI;
 
 [Serializable]
 public class ShipManager
@@ -10,9 +11,13 @@ public class ShipManager
     public int m_Lives;
     public int m_Treasures;
     public CameraControl CC;
+    public GameObject m_Canvas;
+    public BaseTreasure m_BT;
     [HideInInspector] public int m_PlayerNumber;
     [HideInInspector] public GameObject m_Instance;
     [HideInInspector] public bool m_Winner = false;
+    [HideInInspector] public Text m_TreasureText;
+    [HideInInspector] public Text m_LivesText;
 
     private GameObject m_Player;
 
@@ -21,6 +26,7 @@ public class ShipManager
     private Rigidbody m_Rigidbody;
     private ShipControl m_Control;
     private ShipFiringJoystick m_FiringJoystick;
+
 
     bool respawning = false;
 
@@ -49,6 +55,10 @@ public class ShipManager
 
         m_Control.m_PlayerNumber = m_PlayerNumber;
         m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
+
+        Text[] allUIText = m_Canvas.GetComponentsInChildren<Text>();
+        m_TreasureText = allUIText[0];
+        m_LivesText = allUIText[2];
     }
     
     public void Respawn()
@@ -58,6 +68,7 @@ public class ShipManager
         m_Instance.transform.rotation = m_SpawnPoint.rotation;
         m_Instance.SetActive(true);
         respawning = false;
+        m_Lives--;
     }
     
     public void EnableControl()

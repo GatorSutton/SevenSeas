@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BaseTreasure : MonoBehaviour {
 
-    private float treasureCount = 0;
-    public float TreasureCount
+    private int treasureCount = 2;
+    public int TreasureCount
     {
         get
         {

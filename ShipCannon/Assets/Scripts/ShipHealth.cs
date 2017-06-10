@@ -21,20 +21,27 @@ public class ShipHealth : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
         if(collider.tag == "tentacle")
-        { 
-            gameObject.SetActive(false);
-            m_Alive = false;
+        {
+            killShip();
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "cannonball")
         {
-            gameObject.SetActive(false);
-            m_Alive = false;
+            killShip();
             Destroy(collision.gameObject);
         }
     }
+
+    void killShip()
+    {
+        gameObject.SetActive(false);
+        m_Alive = false;
+
+    }
+
+
 
 }

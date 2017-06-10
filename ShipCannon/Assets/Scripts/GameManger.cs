@@ -59,10 +59,10 @@ public class GameManger : MonoBehaviour {
         m_MessageText.text = string.Empty;
 
 
-        while(OneTeamLeft() || TreasureVictory())
+        while(OneTeamLeft() && !TreasureVictory())              //remove !OneTeamLeft for testing one team
         {
-            print("testing");
             RespawnShips();
+            UpdateShipUI();
             yield return null;
         }
     }
@@ -129,7 +129,7 @@ public class GameManger : MonoBehaviour {
 
         if(m_GameWinner != null)
         {
-            message = "Player Number" + m_GameWinner.m_PlayerNumber + "Wins";
+            message = "Player Number " + m_GameWinner.m_PlayerNumber + " Wins";
         }
 
         return message;
@@ -169,6 +169,16 @@ public class GameManger : MonoBehaviour {
             {
                 m_Ships[i].Respawn();
             }
+        }
+    }
+
+    private void UpdateShipUI()
+    {
+        for (int i = 0; i < m_Ships.Length; i++)
+        {
+            m_Ships[i].m_Treasures = m_Ships[i].m_BT.TreasureCount;                                                         
+            m_Ships[i].m_TreasureText.text = "Treasures: " + m_Ships[i].m_Treasures;
+            m_Ships[i].m_LivesText.text = "Lives: " + m_Ships[i].m_Lives;
         }
     }
 

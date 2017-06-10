@@ -1607,7 +1607,7 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -1839,9 +1839,13 @@ MonoBehaviour:
     m_Lives: 3
     m_Treasures: 0
     CC: {fileID: 1507091542}
+    m_Canvas: {fileID: 828067700}
+    m_BT: {fileID: 188640124}
     m_PlayerNumber: 0
     m_Instance: {fileID: 0}
     m_Winner: 0
+    m_TreasureText: {fileID: 0}
+    m_LivesText: {fileID: 0}
 --- !u!1001 &1370313555
 Prefab:
   m_ObjectHideFlags: 0
