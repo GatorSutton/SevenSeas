@@ -93,9 +93,13 @@ public class CameraControl : MonoBehaviour {
         m_PreviousTarget = holderTransform;
     }
 
+    /*
     public void initialize()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("player");
+        
+        GameObject player = GameObject.FindGameObjectWithTag("player");                                  //find all players instances
+
+
         foreach(Transform t in player.transform)
         {
             if(t.name == "CameraBehind")
@@ -107,8 +111,27 @@ public class CameraControl : MonoBehaviour {
                 m_PlayerLeft = t.transform;
             }
         }
+        
 
     }
-    
-        
+    */
+
+    public void initialize(GameObject player)
+    {
+        foreach (Transform t in player.transform)
+        {
+            if (t.name == "CameraBehind")
+            {
+                m_PlayerFollow = t.transform;
+            }
+            if (t.name == "CameraLeftSide")
+            {
+                m_PlayerLeft = t.transform;
+            }
+        }
+    }
+
+
+
+
 }

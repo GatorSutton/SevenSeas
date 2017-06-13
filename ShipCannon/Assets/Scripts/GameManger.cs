@@ -10,7 +10,9 @@ public class GameManger : MonoBehaviour {
     public CameraControl CC;
     public float m_StartDelay = 3f;
     public float m_EndDelay = 3f;
-    public Text m_MessageText;
+    public Text m_MessageText1;
+    public Text m_MessageText2;
+
     public GameObject m_ShipPrefab;
     public ShipManager[] m_Ships;
 
@@ -46,9 +48,10 @@ public class GameManger : MonoBehaviour {
         SpawnAllShips();
         DisableAllShips();
         delimiter.initalize();
-        CC.initialize();
-        CC.CameraToShip();
-        m_MessageText.text = "PLUNDER!";
+       // CC.initialize();
+        //CC.CameraToShip();
+        m_MessageText1.text = "PLUNDER!";
+        m_MessageText2.text = "PLUNDER!";
         yield return m_StartWait;
     }
 
@@ -56,10 +59,11 @@ public class GameManger : MonoBehaviour {
     {
         EnableShipControl();
 
-        m_MessageText.text = string.Empty;
+        m_MessageText1.text = string.Empty;
+        m_MessageText2.text = "PLUNDER!";
 
 
-        while(OneTeamLeft() && !TreasureVictory())              //remove !OneTeamLeft for testing one team
+        while (!OneTeamLeft() && !TreasureVictory())              //remove !OneTeamLeft for testing one team
         {
             RespawnShips();
             UpdateShipUI();
@@ -71,7 +75,8 @@ public class GameManger : MonoBehaviour {
     {
         DisableAllShips();
         m_GameWinner = getGameWinner();
-        m_MessageText.text = gameOverMessage();
+        m_MessageText1.text = gameOverMessage();
+        m_MessageText2.text = gameOverMessage();
         print("gg");
         yield return m_EndWait;
     }

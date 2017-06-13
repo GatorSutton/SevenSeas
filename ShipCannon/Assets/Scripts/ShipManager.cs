@@ -17,6 +17,7 @@ public class ShipManager
     [HideInInspector] public GameObject m_Instance;
     [HideInInspector] public bool m_Winner = false;
     [HideInInspector] public Text m_TreasureText;
+    [HideInInspector] public Text m_AnnouncementText;
     [HideInInspector] public Text m_LivesText;
 
     private GameObject m_Player;
@@ -59,6 +60,10 @@ public class ShipManager
         Text[] allUIText = m_Canvas.GetComponentsInChildren<Text>();
         m_TreasureText = allUIText[0];
         m_LivesText = allUIText[2];
+
+        CC.initialize(m_Instance);
+        CC.CameraToShip();
+
     }
     
     public void Respawn()
