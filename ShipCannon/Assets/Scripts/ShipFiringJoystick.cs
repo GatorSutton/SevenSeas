@@ -7,6 +7,8 @@ public class ShipFiringJoystick : MonoBehaviour
     public int m_PlayerNumber = 1;
     public Rigidbody m_Cannonball;
     public Transform m_FireTransform;
+    public Rigidbody m_Player;
+    public float m_RecoilForce;
     public float m_LaunchVelocity = 30f;
     public float m_CoolDownPeriod;
     public float m_CannonTurnSpeed;
@@ -55,14 +57,11 @@ public class ShipFiringJoystick : MonoBehaviour
 
         if (Input.GetButtonDown("Shoot"))
         {
-            print(timeStamp);
             if (timeStamp <= Time.time)
             {
                 timeStamp = Time.time + m_CoolDownPeriod;
                 Fire();
             }
-
-
         }
 
 
@@ -80,6 +79,11 @@ public class ShipFiringJoystick : MonoBehaviour
         Rigidbody cannonBallInstance = Instantiate(m_Cannonball, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
 
         cannonBallInstance.velocity = m_LaunchVelocity * m_FireTransform.forward;
+
+        m_Player.AddForce(-m_FireTransform.forward * m_RecoilForce);
+        //m_Player.AddRelativeForce(m_FireTransform.forward * m_RecoilForce);
+       // m_Player.AddRelativeForce(-m_RecoilForce, 0f, -m_RecoilForce);
+       // m_FireTransform.forward;
     }
 
     private void HorizontalTurn()

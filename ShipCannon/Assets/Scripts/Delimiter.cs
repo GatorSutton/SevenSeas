@@ -68,7 +68,7 @@ public class Delimiter : MonoBehaviour
             if (SC1 != null && SF1 != null)
             {
                 SC1.RutterValue += (float)(message[0] - 128);
-                message[0] = 128;
+               // message[0] = 128;
                 SF1.HorizontalCannonInput = message[1] * 256 + message[2];
                 SF1.VerticalCannonInput = message[3] * 256 + message[4];
             }

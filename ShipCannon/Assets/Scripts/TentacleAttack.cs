@@ -27,8 +27,6 @@ public class TentacleAttack : MonoBehaviour
         transform.LookAt(new Vector3(x, 0f, z));
         transform.Rotate(0f, -90f, 0f);
         anim.Play("tentacleattack", -1, 0f);
-        print(x);
-        print(z);
     }
 }
 

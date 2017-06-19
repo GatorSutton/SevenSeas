@@ -909,6 +909,8 @@ MonoBehaviour:
   m_Cannonball: {fileID: 54000012653625006, guid: 04961b27faf0f74478c762ca5f41e0e6,
     type: 2}
   m_FireTransform: {fileID: 4324486717971232}
+  m_Player: {fileID: 54021220051480310}
+  m_RecoilForce: 2000
   m_LaunchVelocity: 60
   m_CoolDownPeriod: 1
   m_CannonTurnSpeed: 50
@@ -949,6 +951,8 @@ MonoBehaviour:
   m_Cannonball: {fileID: 54000012653625006, guid: 04961b27faf0f74478c762ca5f41e0e6,
     type: 2}
   m_FireTransform: {fileID: 4217751858752670}
+  m_Player: {fileID: 0}
+  m_RecoilForce: 0
   m_LaunchVelocity: 60
   m_CoolDownPeriod: 1
   m_CannonTurnSpeed: 50
@@ -996,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerNumber: 1
-  m_Speed: 5
+  m_Speed: 2
   m_TurnSpeed: 0.01
   m_SailMinValue: 1
   m_SailMaxValue: 10
