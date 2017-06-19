@@ -63,7 +63,7 @@ public class Delimiter : MonoBehaviour
             sb.AppendFormat("(#{0})    ", b);
         //  Debug.Log("Received some bytes, printing their ascii codes: " + sb);
 
-        if (message.Length == 5)
+        if (message.Length == 9)
         {
             if (SC1 != null && SF1 != null)
             {
