@@ -51,7 +51,6 @@ public class ShipFiringJoystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         VerticalTurn();
         HorizontalTurn();
 
@@ -63,9 +62,6 @@ public class ShipFiringJoystick : MonoBehaviour
                 Fire();
             }
         }
-
-
-
     }
 
     void FixedUpdate()
@@ -81,9 +77,6 @@ public class ShipFiringJoystick : MonoBehaviour
         cannonBallInstance.velocity = m_LaunchVelocity * m_FireTransform.forward;
 
         m_Player.AddForce(-m_FireTransform.forward * m_RecoilForce);
-        //m_Player.AddRelativeForce(m_FireTransform.forward * m_RecoilForce);
-       // m_Player.AddRelativeForce(-m_RecoilForce, 0f, -m_RecoilForce);
-       // m_FireTransform.forward;
     }
 
     private void HorizontalTurn()

@@ -19,7 +19,6 @@ public class Delimiter : MonoBehaviour
 
     private ShipControl SC1;
     private ShipFiringJoystick SF1;
-    private ShipControl SC2;
     private ShipFiringJoystick SF2;
 
     // Initialization
@@ -65,12 +64,14 @@ public class Delimiter : MonoBehaviour
 
         if (message.Length == 9)
         {
-            if (SC1 != null && SF1 != null)
+            if (SC1 != null && SF1 != null && SF2 != null)
             {
                 SC1.RutterValue += (float)(message[0] - 128);
                // message[0] = 128;
                 SF1.HorizontalCannonInput = message[1] * 256 + message[2];
                 SF1.VerticalCannonInput = message[3] * 256 + message[4];
+                SF2.HorizontalCannonInput = message[5] * 256 + message[6];
+                SF2.VerticalCannonInput = message[7] * 256 + message[8];
             }
         }
 
@@ -81,5 +82,7 @@ public class Delimiter : MonoBehaviour
     {
         SC1 = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
         SF1 = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
+        SF2 = GameObject.FindGameObjectWithTag("cannon2").GetComponent<ShipFiringJoystick>();
+
     }
 }

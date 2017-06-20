@@ -12,6 +12,7 @@ TagManager:
   - player2
   - cannon1
   - player1
+  - cannon2
   layers:
   - Default
   - TransparentFX

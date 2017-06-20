@@ -26,7 +26,10 @@ public class ShipManager
  
     private Rigidbody m_Rigidbody;
     private ShipControl m_Control;
-    private ShipFiringJoystick m_FiringJoystick;
+    //private ShipFiringJoystick m_FiringJoystick;
+
+    private ShipFiringJoystick m_FiringJoystickR;
+    private ShipFiringJoystick m_FiringJoystickL;
 
 
     bool respawning = false;
@@ -52,10 +55,13 @@ public class ShipManager
     public void Setup()
     {
         m_Control = m_Instance.GetComponent<ShipControl>();
-        m_FiringJoystick = m_Instance.GetComponentInChildren<ShipFiringJoystick>();                                   //find script in children of object
+        //m_FiringJoystick = m_Instance.GetComponentInChildren<ShipFiringJoystick>();                                   //find script in children of object
+        ShipFiringJoystick[] joysticks = m_Instance.GetComponentsInChildren<ShipFiringJoystick>();                      //find the 2 joystick scripts L and R attached to ship instance
+        m_FiringJoystickR = joysticks[0];
+        m_FiringJoystickL = joysticks[1];
 
         m_Control.m_PlayerNumber = m_PlayerNumber;
-        m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
+        //m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
 
         Text[] allUIText = m_Canvas.GetComponentsInChildren<Text>();
         m_TreasureText = allUIText[0];
@@ -80,13 +86,15 @@ public class ShipManager
     {
         //m_Rigidbody.isKinematic = false;
         m_Control.enabled = true;
-        m_FiringJoystick.enabled = true;
+        m_FiringJoystickR.enabled = true;
+        m_FiringJoystickL.enabled = true;
     }
 
     public void DisableControl()
     {
         //m_Rigidbody.isKinematic = true;
         m_Control.enabled = false;
-        m_FiringJoystick.enabled = false;
+        m_FiringJoystickR.enabled = false;
+        m_FiringJoystickL.enabled = false;
     }
 }
