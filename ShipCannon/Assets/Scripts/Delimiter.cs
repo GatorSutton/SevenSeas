@@ -25,9 +25,6 @@ public class Delimiter : MonoBehaviour
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialControllerCustomDelimiter>();
-
-       // SC1 = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
-       // SF1 = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
     }
 
     // Executed each frame
@@ -54,8 +51,11 @@ public class Delimiter : MonoBehaviour
 
         byte[] message = serialController.ReadSerialMessage();
 
-        if (message == null)
+        /*
+        if (message == null)                                        //this caused messages to return null instead of just ignoring null messages hmmmm....
+            print("nullMessage");
             return;
+          */
         
         StringBuilder sb = new StringBuilder();
         foreach (byte b in message)
@@ -72,6 +72,7 @@ public class Delimiter : MonoBehaviour
                 SF1.VerticalCannonInput = message[3] * 256 + message[4];
                 SF2.HorizontalCannonInput = message[5] * 256 + message[6];
                 SF2.VerticalCannonInput = message[7] * 256 + message[8];
+                print("done");
             }
         }
 
