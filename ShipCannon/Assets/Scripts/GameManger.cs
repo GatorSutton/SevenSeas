@@ -60,7 +60,7 @@ public class GameManger : MonoBehaviour {
         EnableShipControl();
 
         m_MessageText1.text = string.Empty;
-        m_MessageText2.text = "PLUNDER!";
+        m_MessageText2.text = string.Empty;
 
 
         while (!OneTeamLeft() && !TreasureVictory())              //remove !OneTeamLeft for testing one team
