@@ -9,6 +9,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Text;
+using System.Linq;
 
 /**
  * Sample for reading using polling by yourself, and writing too.
@@ -20,6 +21,10 @@ public class Delimiter : MonoBehaviour
     private ShipControl SC1;
     private ShipFiringJoystick SF1;
     private ShipFiringJoystick SF2;
+
+    private ShipControl SC2;
+    private ShipFiringJoystick SF3;
+    private ShipFiringJoystick SF4;
 
     // Initialization
     void Start()
@@ -75,15 +80,25 @@ public class Delimiter : MonoBehaviour
                 print("done");
             }
         }
-
-
     }
 
     public void initalize()
     {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("player");
+
+        /*
         SC1 = GameObject.FindGameObjectWithTag("player").GetComponent<ShipControl>();
         SF1 = GameObject.FindGameObjectWithTag("cannon1").GetComponent<ShipFiringJoystick>();
         SF2 = GameObject.FindGameObjectWithTag("cannon2").GetComponent<ShipFiringJoystick>();
+        */
+    
+        
+        SC1 = players[0].GetComponent<ShipControl>();
+        var cannons = players[0].transform.Cast<Transform>().Where(c => c.gameObject.tag == "cannon").ToArray();
+        SF1 = cannons[0].GetComponent<ShipFiringJoystick>();
+        SF2 = cannons[1].GetComponent<ShipFiringJoystick>();
 
+       
+        
     }
 }
