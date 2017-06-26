@@ -77,6 +77,12 @@ public class Delimiter : MonoBehaviour
                 SF1.VerticalCannonInput = message[3] * 256 + message[4];
                 SF2.HorizontalCannonInput = message[5] * 256 + message[6];
                 SF2.VerticalCannonInput = message[7] * 256 + message[8];
+
+                SC2.RutterValue += (float)(message[9] - 128);
+                SF3.HorizontalCannonInput = message[10] * 256 + message[11];
+                SF3.VerticalCannonInput = message[12] * 256 + message[13];
+                SF4.HorizontalCannonInput = message[14] * 256 + message[15];
+                SF4.VerticalCannonInput = message[16] * 256 + message[17];
                 print("done");
             }
         }
@@ -98,7 +104,13 @@ public class Delimiter : MonoBehaviour
         SF1 = cannons[0].GetComponent<ShipFiringJoystick>();
         SF2 = cannons[1].GetComponent<ShipFiringJoystick>();
 
-       
-        
+
+        SC2 = players[1].GetComponent<ShipControl>();
+        cannons = players[1].transform.Cast<Transform>().Where(c => c.gameObject.tag == "cannon").ToArray();
+        SF3 = cannons[0].GetComponent<ShipFiringJoystick>();
+        SF4 = cannons[1].GetComponent<ShipFiringJoystick>();
+
+
+
     }
 }

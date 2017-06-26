@@ -27,7 +27,8 @@ public class LaunchArcRenderer2 : MonoBehaviour
             clone.transform.parent = gameObject.transform;
             Renderer r = clone.GetComponent<Renderer>();
             Color color = r.material.color;
-            color.a = 1 - (float)i / (float)resolution;
+            //color.a = 1 - (float)i / (float)resolution;
+            color.a = .5f;
             r.material.color = color;
             spheres[i] = clone;
         }

@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour {
     public Transform m_SkyCam;
     public Transform m_RespawnPoint;
     public Transform m_PlayerLeft;
+    public Transform m_PlayerRight;
 
    
 
@@ -32,41 +33,17 @@ public class CameraControl : MonoBehaviour {
 	}
 
     private void Move()
-    {
-        /*
-        transform.position = Vector3.Lerp(m_PlayerFollow.position, m_SkyCam.position, t);
-        transform.rotation = Quaternion.Lerp(m_PlayerFollow.rotation, m_SkyCam.rotation, t);
-        */
-        
+    {   
         transform.position = Vector3.Lerp(m_PreviousTarget.position, m_Target.position, t);
         transform.rotation = Quaternion.Lerp(m_PreviousTarget.rotation, m_Target.rotation, t);
-
     }
 
     private void SetTime()
-    {
-        /*
-        if (m_Player.activeSelf == false)
-        {
-            if(t < 1)
-            {
-                t += Time.deltaTime/4;
-            }
-        }
-        else
-        {
-            if(t > 0)
-            {
-                t -= Time.deltaTime/4;
-            }
-        }
-        */
-        
+    {   
         if(t < 1)
         {
             t += Time.deltaTime / 2;
-        }
-        
+        }   
     }
 
     public void CameraToShip()
@@ -93,29 +70,6 @@ public class CameraControl : MonoBehaviour {
         m_PreviousTarget = holderTransform;
     }
 
-    /*
-    public void initialize()
-    {
-        
-        GameObject player = GameObject.FindGameObjectWithTag("player");                                  //find all players instances
-
-
-        foreach(Transform t in player.transform)
-        {
-            if(t.name == "CameraBehind")
-            {
-                m_PlayerFollow = t.transform;
-            }
-            if(t.name == "CameraLeftSide")
-            {
-                m_PlayerLeft = t.transform;
-            }
-        }
-        
-
-    }
-    */
-
     public void initialize(GameObject player)
     {
         foreach (Transform t in player.transform)
@@ -128,6 +82,11 @@ public class CameraControl : MonoBehaviour {
             {
                 m_PlayerLeft = t.transform;
             }
+            if (t.name == "CameraRightSide")
+            {
+                m_PlayerRight = t.transform;
+            }
+
         }
     }
 

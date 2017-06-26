@@ -62,6 +62,7 @@ public class ShipControl : MonoBehaviour {
         if(Input.GetButtonDown("SailUp"))
         {
             m_SailValue = m_SailMaxValue;
+            m_TurnSpeed = .01f;
         }
 
         if(Input.GetButtonDown("SailDown"))
@@ -69,6 +70,7 @@ public class ShipControl : MonoBehaviour {
             if (m_SailValue > m_SailMinValue)
             {
                 m_SailValue = m_SailMinValue;
+                m_TurnSpeed = .03f;
             }
         }
 
