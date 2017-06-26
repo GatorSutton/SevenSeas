@@ -36,8 +36,9 @@ public class ShipControl : MonoBehaviour {
     }
 
     private float m_RutterValue = 0;
-
     private float anchorTimeStamp = 0;
+    private string m_AnchorButton;
+    private string m_SailButton;
 
     
     
@@ -52,6 +53,8 @@ public class ShipControl : MonoBehaviour {
 	void Start ()
     {
         ST = GetComponent<ShipTreasure>();
+        m_AnchorButton = "Anchor" + m_PlayerNumber;
+        m_SailButton = "Sail" + m_PlayerNumber;
 	}
 	
 	// Update is called once per frame
@@ -59,22 +62,29 @@ public class ShipControl : MonoBehaviour {
     {
        
 
-        if(Input.GetButtonDown("SailUp"))
+        if(Input.GetButtonDown(m_SailButton) && (m_SailValue==m_SailMinValue))
         {
-            m_SailValue = m_SailMaxValue;
-            m_TurnSpeed = .01f;
-        }
-
-        if(Input.GetButtonDown("SailDown"))
-        {
-            if (m_SailValue > m_SailMinValue)
+            if (m_SailValue == m_SailMinValue)
+            {
+                m_SailValue = m_SailMaxValue;
+                m_RutterMaxValue = 200f;
+                m_RutterMinValue = -200f;
+            }
+            else
             {
                 m_SailValue = m_SailMinValue;
-                m_TurnSpeed = .03f;
+                m_RutterMaxValue = 600f;
+                m_RutterMinValue = -600f;
             }
         }
+        else if(Input.GetButtonDown(m_SailButton) && (m_SailValue==m_SailMaxValue))
+        {
+                m_SailValue = m_SailMinValue;
+                m_RutterMaxValue = 600f;
+                m_RutterMinValue = -600f;
+        }
 
-        if (Input.GetButtonDown("Anchor"))
+        if (Input.GetButtonDown(m_AnchorButton))
         {
             if (anchorTimeStamp <= Time.time)
             {

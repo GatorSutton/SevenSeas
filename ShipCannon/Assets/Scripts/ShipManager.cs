@@ -61,7 +61,8 @@ public class ShipManager
         m_FiringJoystickL = joysticks[1];
 
         m_Control.m_PlayerNumber = m_PlayerNumber;
-        //m_FiringJoystick.m_PlayerNumber = m_PlayerNumber;
+        m_FiringJoystickR.m_PlayerNumber = m_PlayerNumber;
+        m_FiringJoystickL.m_PlayerNumber = m_PlayerNumber;
 
         Text[] allUIText = m_Canvas.GetComponentsInChildren<Text>();
         m_TreasureText = allUIText[0];

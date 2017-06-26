@@ -25,6 +25,7 @@ public class ShipFiringJoystick : MonoBehaviour
 
     private int m_HorizontalCannonInput;
     private int m_VerticalCannonInput;
+    private string m_FiringButton;
 
     public int HorizontalCannonInput
     {
@@ -43,6 +44,11 @@ public class ShipFiringJoystick : MonoBehaviour
         if(isLeftSide)
         {
             alternateSide = 180;
+            m_FiringButton = "PortFire" + m_PlayerNumber;
+        }
+        else
+        {
+            m_FiringButton = "StarboardFire" + m_PlayerNumber;
         }
         m_HorizontalRelativeAngle = 0;
         m_VerticalRelativeAngle = 0;
@@ -54,7 +60,7 @@ public class ShipFiringJoystick : MonoBehaviour
         VerticalTurn();
         HorizontalTurn();
 
-        if (Input.GetButtonDown("Shoot"))
+        if (Input.GetButtonDown(m_FiringButton))
         {
             if (timeStamp <= Time.time)
             {
