@@ -40,7 +40,7 @@ public class GameManger : MonoBehaviour {
         yield return StartCoroutine(GameStarting());
         yield return StartCoroutine(GamePlaying());
         yield return StartCoroutine(GameEnding());
-       
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     private IEnumerator GameStarting()
@@ -78,7 +78,6 @@ public class GameManger : MonoBehaviour {
         m_MessageText1.text = gameOverMessage();
         m_MessageText2.text = gameOverMessage();
         print("gg");
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         yield return m_EndWait;
     }
 

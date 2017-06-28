@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class InsertCoins : MonoBehaviour {
 
-    private int credits = 0;
-    private int coinsNeeded = 4;
+    public int credits = 0;
+    public int coinsNeeded = 4;
 
     private void Awake()
     {
@@ -94,6 +94,7 @@ public class InsertCoins : MonoBehaviour {
         {
             SceneManager.LoadScene("miniGame", LoadSceneMode.Single);
         }
+        credits--;
     }
 
 
