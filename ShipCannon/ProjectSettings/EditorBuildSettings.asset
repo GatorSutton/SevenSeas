@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/miniGame.unity
     guid: d52d9cc69a4a7d84f9b6758be2237417
+  - enabled: 1
+    path: Assets/StartUp.unity
+    guid: 8960069314d56d94dba749dd17045768

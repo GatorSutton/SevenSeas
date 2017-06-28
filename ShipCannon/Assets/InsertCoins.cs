@@ -9,8 +9,10 @@ public class InsertCoins : MonoBehaviour {
     private int credits = 0;
     private int coinsNeeded = 4;
 
-    public Text Credits;
-    public Text CoinsNeeded;
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
     // Use this for initialization
     void Start() {
@@ -70,7 +72,6 @@ public class InsertCoins : MonoBehaviour {
         }
 
         updateCredits();
-        updateUI();
     }
 
     void addCoin()
@@ -89,13 +90,11 @@ public class InsertCoins : MonoBehaviour {
 
     void startGame()
     {
-        SceneManager.LoadScene("miniGame", LoadSceneMode.Single);
-
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            SceneManager.LoadScene("miniGame", LoadSceneMode.Single);
+        }
     }
 
-    void updateUI()
-    {
-        Credits.text = "Credits: " + credits;
-        CoinsNeeded.text = "Insert " + coinsNeeded + " coins";
-    }
+
 }

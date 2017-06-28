@@ -78,6 +78,7 @@ public class GameManger : MonoBehaviour {
         m_MessageText1.text = gameOverMessage();
         m_MessageText2.text = gameOverMessage();
         print("gg");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         yield return m_EndWait;
     }
 
