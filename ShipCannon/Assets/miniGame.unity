@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0eb60da3f17a488be63a67fcaadc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerNumber: 1
 --- !u!33 &188640125
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2071,6 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0eb60da3f17a488be63a67fcaadc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerNumber: 1
 --- !u!135 &1271913796
 SphereCollider:
   m_ObjectHideFlags: 0

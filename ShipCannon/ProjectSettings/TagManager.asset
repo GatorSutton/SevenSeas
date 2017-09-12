@@ -13,6 +13,7 @@ TagManager:
   - cannon1
   - player1
   - cannon2
+  - pursuitangle
   layers:
   - Default
   - TransparentFX
