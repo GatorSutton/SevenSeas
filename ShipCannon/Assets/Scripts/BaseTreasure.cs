@@ -3,10 +3,7 @@ using System.Collections;
 
 public class BaseTreasure : MonoBehaviour {
 
-    public int m_playerNumber = 1;
-    private int treasureCount = 0;
-
-
+    private int treasureCount = 2;
     public int TreasureCount
     {
         get
@@ -30,16 +27,12 @@ public class BaseTreasure : MonoBehaviour {
     {
         if(collider.tag == "player")
         {
-            if (collider.GetComponent<ShipControl>().m_PlayerNumber == m_playerNumber)
+            ShipTreasure ST = collider.GetComponent<ShipTreasure>();
+                if(ST.hasTreasure)
             {
-                ShipTreasure ST = collider.GetComponent<ShipTreasure>();
-                if (ST.hasTreasure)
-                {
-                    ST.DropTreasure();
-                    treasureCount++;
-                }
+                ST.DropTreasure();
+                treasureCount++;
             }
-            
         }
     }
 }
