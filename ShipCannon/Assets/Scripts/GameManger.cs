@@ -48,8 +48,6 @@ public class GameManger : MonoBehaviour {
         SpawnAllShips();
         DisableAllShips();
         delimiter.initalize();
-       // CC.initialize();
-        //CC.CameraToShip();
         m_MessageText1.text = "PLUNDER!";
         m_MessageText2.text = "PLUNDER!";
         yield return m_StartWait;
