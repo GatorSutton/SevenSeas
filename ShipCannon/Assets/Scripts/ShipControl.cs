@@ -5,6 +5,7 @@ public class ShipControl : MonoBehaviour {
 
     public int m_PlayerNumber = 1;
     public float m_Speed = 10f;
+    public float m_CalculatedSpeed;
     public float m_TurnSpeed = 10f;
     public float m_SailMinValue;
     public float m_SailMaxValue;
@@ -114,7 +115,8 @@ public class ShipControl : MonoBehaviour {
 
     private void Move()
     {
-        Vector3 movement = -transform.right * m_SailValue * m_Speed * Time.deltaTime * m_AnchorMove * m_TreasureSpeedInhibitor;
+        m_CalculatedSpeed = m_SailValue * m_Speed * Time.deltaTime * m_AnchorMove * m_TreasureSpeedInhibitor;
+        Vector3 movement = -transform.right * m_CalculatedSpeed;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
     }
 

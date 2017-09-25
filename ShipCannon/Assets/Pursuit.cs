@@ -15,13 +15,13 @@ public class Pursuit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SC = GetComponent<ShipControl>();
+        SC = GetComponentInParent<ShipControl>();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         speedAdjuster();
-        print(t);
 	}
 
     //Ramp up speed if in pursuit

@@ -10,6 +10,7 @@ public class ShipManager
     public Transform m_SpawnPoint;
     public int m_Lives;
     public int m_Treasures;
+    public ShipControl m_Control;
     public CameraControl CC;
     public GameObject m_Canvas;
     public BaseTreasure m_BT;
@@ -19,13 +20,14 @@ public class ShipManager
     [HideInInspector] public Text m_TreasureText;
     [HideInInspector] public Text m_AnnouncementText;
     [HideInInspector] public Text m_LivesText;
+    [HideInInspector] public Text m_SpeedText;
 
     private GameObject m_Player;
 
 
  
     private Rigidbody m_Rigidbody;
-    private ShipControl m_Control;
+
     //private ShipFiringJoystick m_FiringJoystick;
 
     private ShipFiringJoystick m_FiringJoystickR;
@@ -68,6 +70,7 @@ public class ShipManager
         Text[] allUIText = m_Canvas.GetComponentsInChildren<Text>();
         m_TreasureText = allUIText[0];
         m_LivesText = allUIText[2];
+        m_SpeedText = allUIText[3];
 
         CC.initialize(m_Instance);
         CC.CameraToShip();

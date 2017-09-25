@@ -62,9 +62,9 @@ public class Delimiter : MonoBehaviour
             return;
           */
         
-        StringBuilder sb = new StringBuilder();
-        foreach (byte b in message)
-            sb.AppendFormat("(#{0})    ", b);
+        //StringBuilder sb = new StringBuilder();
+        //foreach (byte b in message)
+        //    sb.AppendFormat("(#{0})    ", b);
         //  Debug.Log("Received some bytes, printing their ascii codes: " + sb);
 
         if (message.Length == 9)

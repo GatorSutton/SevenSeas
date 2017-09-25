@@ -182,6 +182,7 @@ public class GameManger : MonoBehaviour {
             m_Ships[i].m_Treasures = m_Ships[i].m_BT.TreasureCount;                                                         
             m_Ships[i].m_TreasureText.text = "Treasures: " + m_Ships[i].m_Treasures;
             m_Ships[i].m_LivesText.text = "Lives: " + m_Ships[i].m_Lives;
+            m_Ships[i].m_SpeedText.text = "Speed: " + m_Ships[i].m_Control.m_CalculatedSpeed.ToString("F2");
         }
     }
 
