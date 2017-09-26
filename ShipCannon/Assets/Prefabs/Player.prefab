@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4041583218138020}
   - component: {fileID: 135781073206916294}
   - component: {fileID: 114416891726751454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PursuitVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4200274752163780}
   - component: {fileID: 64723425197379500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PursuitAngle
   m_TagString: pursuitangle
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449045253950340}
   m_LocalRotation: {x: 0, y: 0.9999942, z: -0, w: -0.003403326}
-  m_LocalPosition: {x: -288.328, y: -3.3749316e-17, z: 303.98685}
+  m_LocalPosition: {x: 402.8816, y: -2.1511247e-17, z: 193.75607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445936953232118}

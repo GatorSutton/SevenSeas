@@ -10,6 +10,7 @@ public class Pursuit : MonoBehaviour {
     public float pursuitMultiplier;
     public float decelerationMultiplier;
 
+    private bool accelerating = false;
     private float t = 0;
     private float accelerationMultiplier = -.1f;
 
@@ -27,30 +28,21 @@ public class Pursuit : MonoBehaviour {
     //Ramp up speed if in pursuit
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "pursuitangle" )//&& (Mathf.Abs(other.transform.rotation.eulerAngles.y - transform.rotation.eulerAngles.y) < 45))
+        if (other.tag == "pursuitangle" && (Mathf.Abs(other.transform.parent.transform.rotation.eulerAngles.y - transform.parent.transform.rotation.eulerAngles.y) < 45))
         {
-                accelerationMultiplier = pursuitMultiplier;
-            print("pursuitBegin");
+            t += .02F;
+            print(Mathf.Abs(other.transform.parent.transform.rotation.eulerAngles.y - transform.parent.transform.rotation.eulerAngles.y));
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "pursuitangle")
-        {
-                accelerationMultiplier = decelerationMultiplier;
-            print("slow your roll");
-        }
-    }
-
-
 
 
     private void speedAdjuster()
     {
+        t -= .01F;
         t = Mathf.Clamp(t, 0, 1);
-            t += accelerationMultiplier * Time.deltaTime;
         SC.m_Speed = Mathf.Lerp(normalSpeed, pursuitSpeed, t);
+        
+ 
     }
 
 
