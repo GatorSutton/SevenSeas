@@ -10,7 +10,10 @@ public class Pursuit : MonoBehaviour {
     public float pursuitMultiplier;
     public float decelerationMultiplier;
     public Transform behindCamera;
+    public ParticleSystem PS;
+    public Transform windSpawnPoint;
 
+    private float windTimer = 0;
     private Transform startingCameraPosition;
     private bool accelerating = false;
     private float t = 0;
@@ -24,8 +27,7 @@ public class Pursuit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        speedAdjuster();
-        cameraAdjuster();
+        pursuitAdjuster();
 	}
 
     //Ramp up speed if in pursuit
@@ -34,7 +36,15 @@ public class Pursuit : MonoBehaviour {
         if (other.tag == "pursuitangle" && (Mathf.Abs(other.transform.parent.transform.rotation.eulerAngles.y - transform.parent.transform.rotation.eulerAngles.y) < 45))
         {
             t += .02F;
+            windSpawner();
         }
+    }
+
+    private void pursuitAdjuster()
+    {
+        speedAdjuster();
+        cameraAdjuster();
+    
     }
 
 
@@ -43,16 +53,25 @@ public class Pursuit : MonoBehaviour {
         t -= .01F;
         t = Mathf.Clamp(t, 0, 1);
         SC.m_Speed = Mathf.Lerp(normalSpeed, pursuitSpeed, t);
-      
-        
- 
     }
 
     private void cameraAdjuster()
     {
         float y = Mathf.Lerp(30, 20, t);
         behindCamera.position = new Vector3(startingCameraPosition.position.x, y, startingCameraPosition.position.z);
-        
     }
+
+    private void windSpawner()
+    {
+        windTimer += Time.deltaTime;
+        if (windTimer > .75)
+        {
+            Instantiate(PS, new Vector3((windSpawnPoint.position.x + Random.Range(-50, 50)), (windSpawnPoint.position.y + Random.Range(0, 30)), windSpawnPoint.position.z), windSpawnPoint.rotation);
+           // Instantiate(PS, windSpawnPoint);
+            windTimer = 0;
+        }
+    }
+
+    
 
 }

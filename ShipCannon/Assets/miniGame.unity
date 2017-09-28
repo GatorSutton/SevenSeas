@@ -1173,6 +1173,10 @@ Prefab:
       propertyPath: m_Name
       value: Kraken
       objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 532f297289c29f343badab459de1110b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 532f297289c29f343badab459de1110b, type: 3}
   m_IsPrefabParent: 0
