@@ -57,16 +57,29 @@ public class ShipFiringJoystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VerticalTurn();
+       // VerticalTurn();
         HorizontalTurn();
 
-        if (Input.GetButtonDown(m_FiringButton))
+        if (Input.GetButtonUp(m_FiringButton))
         {
             if (timeStamp <= Time.time)
             {
                 timeStamp = Time.time + m_CoolDownPeriod;
                 Fire();
             }
+        }
+
+        if (Input.GetButton(m_FiringButton))
+        {
+            if (m_VerticalRelativeAngle < 30)
+            {
+                m_VerticalRelativeAngle -= Time.deltaTime * 10;
+            }
+        }
+
+        if (Input.GetButtonDown(m_FiringButton))
+        {
+           m_VerticalRelativeAngle = 0;
         }
     }
 
