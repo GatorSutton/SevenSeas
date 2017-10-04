@@ -16,12 +16,14 @@ public class ShipFiringJoystick : MonoBehaviour
     public Transform ship;
     public bool isLeftSide;
 
+    public float m_VerticalRelativeAngle = -15;
+
     private float alternateSide = 0;
     private float timeStamp = 0;
     private float m_CannonHorizontalInputValue;
     private float m_CannonVerticalInputValue;
     private float m_HorizontalRelativeAngle;
-    private float m_VerticalRelativeAngle;
+
 
     private int m_HorizontalCannonInput;
     private int m_VerticalCannonInput;
@@ -51,7 +53,7 @@ public class ShipFiringJoystick : MonoBehaviour
             m_FiringButton = "StarboardFire" + m_PlayerNumber;
         }
         m_HorizontalRelativeAngle = 0;
-        m_VerticalRelativeAngle = 0;
+        m_VerticalRelativeAngle = -10;
     }
 
     // Update is called once per frame
@@ -69,18 +71,6 @@ public class ShipFiringJoystick : MonoBehaviour
             }
         }
 
-        if (Input.GetButton(m_FiringButton))
-        {
-            if (m_VerticalRelativeAngle < 30)
-            {
-                m_VerticalRelativeAngle -= Time.deltaTime * 10;
-            }
-        }
-
-        if (Input.GetButtonDown(m_FiringButton))
-        {
-           m_VerticalRelativeAngle = 0;
-        }
     }
 
     void FixedUpdate()
@@ -101,7 +91,16 @@ public class ShipFiringJoystick : MonoBehaviour
     private void HorizontalTurn()
     {
         float ratio = Mathf.InverseLerp(0, 1024, m_HorizontalCannonInput);
-        m_HorizontalRelativeAngle = -45 + ratio * 90 + alternateSide;
+        if (isLeftSide)
+        {
+            m_HorizontalRelativeAngle = -(m_MaxCannonTurn/2) + ratio * m_MaxCannonTurn + 180;
+        }
+        else
+        {
+            m_HorizontalRelativeAngle = -(m_MaxCannonTurn/2) + ratio * m_MaxCannonTurn;
+        }
+
+        //m_HorizontalRelativeAngle = -45 + ratio * m_MaxCannonTurn + alternateSide;
     }
 
     private void VerticalTurn()

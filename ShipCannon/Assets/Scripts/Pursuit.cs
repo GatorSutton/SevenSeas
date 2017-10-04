@@ -36,7 +36,7 @@ public class Pursuit : MonoBehaviour {
         if (other.tag == "pursuitangle" && (Mathf.Abs(other.transform.parent.transform.rotation.eulerAngles.y - transform.parent.transform.rotation.eulerAngles.y) < 45))
         {
             t += .02F;
-            windSpawner();
+            //windSpawner();
         }
     }
 
@@ -67,7 +67,6 @@ public class Pursuit : MonoBehaviour {
         if (windTimer > .75)
         {
             Instantiate(PS, new Vector3((windSpawnPoint.position.x + Random.Range(-50, 50)), (windSpawnPoint.position.y + Random.Range(0, 30)), windSpawnPoint.position.z), windSpawnPoint.rotation);
-           // Instantiate(PS, windSpawnPoint);
             windTimer = 0;
         }
     }

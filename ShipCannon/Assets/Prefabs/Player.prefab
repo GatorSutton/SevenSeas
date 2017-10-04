@@ -513,7 +513,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449045253950340}
   m_LocalRotation: {x: 0, y: 0.9999942, z: -0, w: -0.003403326}
-  m_LocalPosition: {x: 1378.1346, y: 370.41162, z: 805.96375}
+  m_LocalPosition: {x: -258.31247, y: -2.626887e-17, z: 236.60896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445936953232118}
@@ -1043,13 +1043,14 @@ MonoBehaviour:
     type: 2}
   m_FireTransform: {fileID: 4324486717971232}
   m_Player: {fileID: 54021220051480310}
-  m_RecoilForce: 3000
+  m_RecoilForce: 2000
   m_LaunchVelocity: 60
   m_CoolDownPeriod: 1
   m_CannonTurnSpeed: 50
-  m_MaxCannonTurn: 45
+  m_MaxCannonTurn: 90
   ship: {fileID: 4993643126887612}
   isLeftSide: 0
+  m_VerticalRelativeAngle: -15
 --- !u!114 &114345451938267512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1103,13 +1104,14 @@ MonoBehaviour:
     type: 2}
   m_FireTransform: {fileID: 4217751858752670}
   m_Player: {fileID: 54021220051480310}
-  m_RecoilForce: 3000
+  m_RecoilForce: 2000
   m_LaunchVelocity: 60
   m_CoolDownPeriod: 1
   m_CannonTurnSpeed: 50
-  m_MaxCannonTurn: 45
+  m_MaxCannonTurn: 180
   ship: {fileID: 4993643126887612}
   isLeftSide: 1
+  m_VerticalRelativeAngle: -15
 --- !u!114 &114647296392934184
 MonoBehaviour:
   m_ObjectHideFlags: 1
