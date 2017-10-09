@@ -513,7 +513,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449045253950340}
   m_LocalRotation: {x: 0, y: 0.9999942, z: -0, w: -0.003403326}
-  m_LocalPosition: {x: -258.31247, y: -2.626887e-17, z: 236.60896}
+  m_LocalPosition: {x: -488.69897, y: 4.0757796e-17, z: -367.1136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445936953232118}
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_LaunchVelocity: 60
   m_CoolDownPeriod: 1
   m_CannonTurnSpeed: 50
-  m_MaxCannonTurn: 180
+  m_MaxCannonTurn: 90
   ship: {fileID: 4993643126887612}
   isLeftSide: 1
   m_VerticalRelativeAngle: -15
