@@ -53,7 +53,7 @@ public class ShipFiringJoystick : MonoBehaviour
             m_FiringButton = "StarboardFire" + m_PlayerNumber;
         }
         m_HorizontalRelativeAngle = 0;
-        m_VerticalRelativeAngle = -10;
+        m_VerticalRelativeAngle = -15;
     }
 
     // Update is called once per frame
