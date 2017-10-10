@@ -7,7 +7,6 @@ public class LaunchArcRenderer2 : MonoBehaviour
 
 
     public Transform Cannon;
-    public Transform Ship;
     public float velocity;
     public int resolution;
     public GameObject sphere;
@@ -67,14 +66,14 @@ public class LaunchArcRenderer2 : MonoBehaviour
         for (int i = 0; i <= resolution; i++)
         {
             float t = (float)i / (float)resolution;
-            arcArray[i] = CalculateArcPoint(t, maxDistance, transform.position.x, transform.position.y, transform.position.z);
+            arcArray[i] = CalculateArcPoint(t, maxDistance, transform.position.y);
         }
 
         return arcArray;
 
     }
 
-    Vector3 CalculateArcPoint(float t, float maxDistance, float initialX, float initialY, float initalZ)
+    Vector3 CalculateArcPoint(float t, float maxDistance, float initialY)
     {
         float distance = t * maxDistance;
         float y = distance * Mathf.Tan(radianAngle) - ((gravity * distance * distance) / (2 * velocity * velocity * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle))) + initialY;
@@ -96,13 +95,5 @@ public class LaunchArcRenderer2 : MonoBehaviour
         angle = Mathf.Deg2Rad * angle;
         return angle;
     }
-
-    public void SwitchSides()
-    {
-        
-    }
-
-
-
 
 }
