@@ -26,7 +26,7 @@ public class LandingSpotController : MonoBehaviour {
     float CalculateLandingDistance()
     {
         radianAngle = CalculateAngle();
-        float maxDistance = (velocity * Mathf.Cos(radianAngle) / gravity) * (velocity * Mathf.Sin(radianAngle) + Mathf.Sqrt((velocity * velocity * Mathf.Sin(radianAngle) * Mathf.Sin(radianAngle) + 2 * gravity * transform.position.y)));
+        float maxDistance = (velocity * Mathf.Cos(radianAngle) / gravity) * (velocity * Mathf.Sin(radianAngle) + Mathf.Sqrt((velocity * velocity * Mathf.Sin(radianAngle) * Mathf.Sin(radianAngle) + 2 * gravity * FireTransform.position.y)));
         return maxDistance;
     }
 

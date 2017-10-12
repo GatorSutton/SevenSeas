@@ -18,6 +18,7 @@
         sampler2D _MainTex;
         fixed3 _AreaColor;
         float3 _Center;
+		float3 _Center2;
         float _Border;
         float _Radius;
  
@@ -29,12 +30,17 @@
         void surf (Input IN, inout SurfaceOutput o) {
             half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             float dist = distance(_Center, IN.worldPos);
+
+			float dist2 = distance(_Center2, IN.worldPos);
  
-            if(dist > _Radius && dist < (_Radius + _Border))
+ 	
+
+            if(dist > _Radius && dist < (_Radius + _Border) || (dist2 > _Radius && dist2 < (_Radius + _Border)))
                 o.Albedo = _AreaColor;
             else
                 o.Albedo = c.rgb;
- 
+
+
             o.Alpha = c.a;
         }
         ENDCG

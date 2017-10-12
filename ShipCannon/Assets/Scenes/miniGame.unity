@@ -597,11 +597,6 @@ Transform:
   m_Father: {fileID: 1097511198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 94, z: 0}
---- !u!4 &390522575 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4324486717971232, guid: ff8f9201ca607ba4badad67c0c8a765c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026048725}
 --- !u!1001 &427262419
 Prefab:
   m_ObjectHideFlags: 0
@@ -1045,6 +1040,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 602453250}
+  other2: {fileID: 2134604245}
+  other3: {fileID: 0}
+  other4: {fileID: 0}
 --- !u!1 &591593797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,49 +1130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BT: {fileID: 188640124}
---- !u!1 &602453250
+--- !u!1 &602453250 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 602453251}
-  - component: {fileID: 602453252}
-  m_Layer: 0
-  m_Name: LandingSpot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &602453251
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 602453250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.75, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1668391081}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &602453252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 602453250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac0a246401d7e045b1e11bfb022f076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cannon: {fileID: 1668391081}
-  FireTransform: {fileID: 390522575}
-  velocity: 60
+  m_PrefabParentObject: {fileID: 1384782055719392, guid: ff8f9201ca607ba4badad67c0c8a765c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1026048725}
 --- !u!1001 &633425599
 Prefab:
   m_ObjectHideFlags: 0
@@ -2059,18 +2019,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114151651842244850, guid: ff8f9201ca607ba4badad67c0c8a765c,
-        type: 2}
-      propertyPath: m_landingSpot
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114151651842244850, guid: ff8f9201ca607ba4badad67c0c8a765c,
+    - target: {fileID: 114647296392934184, guid: ff8f9201ca607ba4badad67c0c8a765c,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 111917678667506044, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1078460702 stripped
@@ -2686,7 +2640,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3153114, g: 0.4243079, b: 0.5955882, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2862,11 +2816,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012869090872, guid: 7a14c512a5e2c3f4f86c46914b231f68,
     type: 2}
   m_PrefabInternal: {fileID: 867606957}
---- !u!4 &1668391081 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4562180384209344, guid: ff8f9201ca607ba4badad67c0c8a765c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026048725}
 --- !u!1001 &1694430101
 Prefab:
   m_ObjectHideFlags: 0
@@ -3434,6 +3383,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2054737950}
+--- !u!1 &2134604245 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1620795323894040, guid: ff8f9201ca607ba4badad67c0c8a765c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1026048725}
 --- !u!1 &2140077515
 GameObject:
   m_ObjectHideFlags: 0

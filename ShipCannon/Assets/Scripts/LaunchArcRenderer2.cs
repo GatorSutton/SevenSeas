@@ -11,7 +11,6 @@ public class LaunchArcRenderer2 : MonoBehaviour
     public int resolution;
     public GameObject sphere;
 
-    public GameObject m_landingSpot;
 
     private GameObject[] spheres;
     private float gravity;
@@ -51,7 +50,7 @@ public class LaunchArcRenderer2 : MonoBehaviour
             spheres[i].transform.position = arcArray[i];
         }
 
-        m_landingSpot.transform.position = arcArray[arcArray.Length - 1];
+
     }
 
     Vector3[] CalculateArcArray()
