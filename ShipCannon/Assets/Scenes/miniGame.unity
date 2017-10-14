@@ -1039,8 +1039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ec8614cbc0dc488bc0b196862758e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 602453250}
-  other2: {fileID: 2134604245}
   landingPoints:
   - {fileID: 602453250}
   - {fileID: 2134604245}
