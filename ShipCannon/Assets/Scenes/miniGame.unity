@@ -1041,8 +1041,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 602453250}
   other2: {fileID: 2134604245}
-  other3: {fileID: 0}
-  other4: {fileID: 0}
+  landingPoints:
+  - {fileID: 602453250}
+  - {fileID: 2134604245}
+  landingPointsPositions:
+  - {x: -384.19162, y: 3.9046283e-17, z: -351.69763, w: 0}
+  - {x: -384.19162, y: 3.9046283e-17, z: -351.69763, w: 0}
 --- !u!1 &591593797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2026,19 @@ Prefab:
     - target: {fileID: 114647296392934184, guid: ff8f9201ca607ba4badad67c0c8a765c,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620795323894040, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}
+      propertyPath: m_TagString
+      value: landingspot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384782055719392, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}
+      propertyPath: m_TagString
+      value: landingspot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320423628147896, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff8f9201ca607ba4badad67c0c8a765c, type: 2}

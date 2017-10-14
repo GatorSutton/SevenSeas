@@ -5,8 +5,10 @@ public class ShadingInWorldSpace : MonoBehaviour
 {
     public GameObject other;
     public GameObject other2;
-    public GameObject other3;
-    public GameObject other4;
+
+    public GameObject[] landingPoints;
+    public Vector4[] landingPointsPositions;
+
 
     Renderer rend;
     void Start()
@@ -17,6 +19,12 @@ public class ShadingInWorldSpace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        for (int i = 0; i < landingPoints.Length; i++)
+        {
+            landingPointsPositions[i] = landingPoints[i].transform.position;
+        }
+        
         if (other != null)
         {
             rend.sharedMaterial.SetVector("_Center", other.transform.position);
@@ -27,14 +35,6 @@ public class ShadingInWorldSpace : MonoBehaviour
             rend.sharedMaterial.SetVector("_Center2", other2.transform.position);
         }
 
-        if (other3 != null)
-        {
-            rend.sharedMaterial.SetVector("_Center3", other3.transform.position);
-        }
-
-        if (other4 != null)
-        {
-            rend.sharedMaterial.SetVector("_Center4", other4.transform.position);
-        }
+        rend.sharedMaterial.SetVectorArray("_Array", landingPointsPositions);
     }
 }
