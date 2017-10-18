@@ -9,6 +9,7 @@ public class CameraControl : MonoBehaviour {
     public Transform m_RespawnPoint;
     public Transform m_PlayerLeft;
     public Transform m_PlayerRight;
+    public Transform m_PlayerAbove;
 
    
 
@@ -70,6 +71,14 @@ public class CameraControl : MonoBehaviour {
         m_PreviousTarget = holderTransform;
     }
 
+    public void CameraToAbove()
+    {
+        t = 0;
+        Transform holderTransform = m_Target;
+        m_Target = m_PlayerAbove;
+        m_PreviousTarget = holderTransform;
+    }
+
     public void initialize(GameObject player)
     {
         foreach (Transform t in player.transform)
@@ -85,6 +94,10 @@ public class CameraControl : MonoBehaviour {
             if (t.name == "CameraRightSide")
             {
                 m_PlayerRight = t.transform;
+            }
+            if (t.name == "CameraAbove")
+            {
+                m_PlayerAbove = t.transform;
             }
 
         }

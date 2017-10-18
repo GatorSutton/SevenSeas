@@ -90,7 +90,9 @@ public class ShipFiringJoystick : MonoBehaviour
 
     private void HorizontalTurn()
     {
-        float ratio = Mathf.InverseLerp(0, 1024, m_HorizontalCannonInput);
+        //float ratio = Mathf.InverseLerp(0, 1024, m_HorizontalCannonInput);
+        float ratio = Mathf.InverseLerp(337, 686, m_HorizontalCannonInput);                         //limit the input of the sensor to 90 degrees
+
         if (isLeftSide)
         {
             m_HorizontalRelativeAngle = -(m_MaxCannonTurn/2) + ratio * m_MaxCannonTurn + 180;
