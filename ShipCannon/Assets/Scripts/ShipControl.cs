@@ -87,6 +87,7 @@ public class ShipControl : MonoBehaviour {
 
         if (Input.GetButtonDown(m_AnchorButton))
         {
+            /*
             if (anchorTimeStamp <= Time.time)
             {
                 anchorTimeStamp = Time.time + m_AnchorCooldownPeriod;
@@ -100,6 +101,8 @@ public class ShipControl : MonoBehaviour {
                   //  PF.CameraToShip();
                 }
             }
+            */
+
         }
 
 
