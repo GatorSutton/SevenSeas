@@ -75,6 +75,9 @@ public class ShipManager
         CC.initialize(m_Instance);
         CC.CameraToShip();
 
+        //Set CC to the CC of the Ship Control using m_Instance
+        //shading in world space landing points could be set up here as well
+
     }
     
     public void Respawn()
