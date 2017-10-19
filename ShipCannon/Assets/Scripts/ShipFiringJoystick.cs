@@ -62,6 +62,7 @@ public class ShipFiringJoystick : MonoBehaviour
        // VerticalTurn();
         HorizontalTurn();
 
+        /*
         if (Input.GetButtonUp(m_FiringButton))
         {
             if (timeStamp <= Time.time)
@@ -70,6 +71,28 @@ public class ShipFiringJoystick : MonoBehaviour
                 Fire();
             }
         }
+        */
+
+        if (Input.GetButton(m_FiringButton))
+        {
+            if (m_VerticalRelativeAngle > -45)
+            {
+                m_VerticalRelativeAngle -= .5f;
+            }
+        }
+
+        if (Input.GetButtonUp(m_FiringButton))
+        {
+            if (timeStamp <= Time.time)
+            {
+                timeStamp = Time.time + m_CoolDownPeriod;
+                Fire();
+                
+            }
+            m_VerticalRelativeAngle = -15;
+        }
+
+
 
     }
 

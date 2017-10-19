@@ -1034,17 +1034,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551919150}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403ec8614cbc0dc488bc0b196862758e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   landingPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1247607325}
+  - {fileID: 1400781345}
   landingPointsPositions:
-  - {x: -384.19162, y: 3.9046283e-17, z: -351.69763, w: 0}
-  - {x: -384.19162, y: 3.9046283e-17, z: -351.69763, w: 0}
+  - {x: -277.18118, y: 3.4364815e-17, z: -310.5307, w: 0}
+  - {x: -277.16757, y: 3.4364815e-17, z: -308.53076, w: 0}
 --- !u!1 &591593797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2262,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 048fb058a906a4e43a1f0c58e56f983c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1247607325 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1384782055719392, guid: ff8f9201ca607ba4badad67c0c8a765c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1513005146}
 --- !u!1 &1271913793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2545,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!1 &1400781345 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1620795323894040, guid: ff8f9201ca607ba4badad67c0c8a765c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1513005146}
 --- !u!1 &1507091536
 GameObject:
   m_ObjectHideFlags: 0
