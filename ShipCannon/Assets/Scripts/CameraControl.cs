@@ -3,6 +3,17 @@ using System.Collections;
 
 public class CameraControl : MonoBehaviour {
 
+    public enum Position {Behind, Above, Left, Right, Sky};
+
+    private Position m_position;
+    public Position m_Position
+    {
+        get
+        {
+            return m_position;
+        }
+    }
+
     public GameObject m_Player;
     public Transform m_PlayerFollow;
     public Transform m_SkyCam;
@@ -23,6 +34,8 @@ public class CameraControl : MonoBehaviour {
         m_Camera = GetComponent<Camera>();
         m_Target = m_SkyCam;
         m_PreviousTarget = m_SkyCam;
+
+        m_position = Position.Sky;
     }
 	
 	// Update is called once per frame
@@ -53,6 +66,7 @@ public class CameraControl : MonoBehaviour {
         Transform holderTransform = m_Target;
         m_Target = m_PlayerFollow;
         m_PreviousTarget = holderTransform;
+        m_position = Position.Behind;
     }
 
     public void CameraToSky()
@@ -61,6 +75,7 @@ public class CameraControl : MonoBehaviour {
         Transform holderTransform = m_Target;
         m_Target = m_SkyCam;
         m_PreviousTarget = holderTransform;
+        m_position = Position.Sky;
     }
 
     public void CameraToLeft()
@@ -69,6 +84,7 @@ public class CameraControl : MonoBehaviour {
         Transform holderTransform = m_Target;
         m_Target = m_PlayerLeft;
         m_PreviousTarget = holderTransform;
+        m_position = Position.Left;
     }
 
     public void CameraToAbove()
@@ -77,6 +93,7 @@ public class CameraControl : MonoBehaviour {
         Transform holderTransform = m_Target;
         m_Target = m_PlayerAbove;
         m_PreviousTarget = holderTransform;
+        m_position = Position.Above;
     }
 
     public void initialize(GameObject player)

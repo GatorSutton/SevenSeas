@@ -103,6 +103,16 @@ public class ShipControl : MonoBehaviour {
             }
             */
 
+            if (PF.m_Position != CameraControl.Position.Above)
+            {
+                PF.CameraToAbove();
+            }
+            else
+            {
+                PF.CameraToShip();
+            }
+            
+
         }
 
 
