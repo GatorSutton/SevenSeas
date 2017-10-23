@@ -117,6 +117,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159918592610374}
+  - component: {fileID: 114261341375001404}
   m_Layer: 0
   m_Name: CameraAbove
   m_TagString: Untagged
@@ -663,7 +664,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449045253950340}
   m_LocalRotation: {x: 0, y: 0.9999942, z: -0, w: -0.003403326}
-  m_LocalPosition: {x: -1124.5242, y: -6.0093344e-18, z: 54.12727}
+  m_LocalPosition: {x: 52.667442, y: -7.022954e-17, z: 632.5715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445936953232118}
@@ -1129,6 +1130,17 @@ MonoBehaviour:
   velocity: 60
   resolution: 10
   sphere: {fileID: 1000012879382254, guid: 9cbe67ce68e930741b4c0b2d42ddec26, type: 2}
+--- !u!114 &114261341375001404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1118341117962374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4129c624279ef4083451c7806502e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114277274203164944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,6 +1198,7 @@ MonoBehaviour:
   Cannon: {fileID: 4562180384209344}
   FireTransform: {fileID: 4324486717971232}
   velocity: 60
+  m_SFJ: {fileID: 114277274203164944}
 --- !u!114 &114416891726751454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1333,6 +1346,7 @@ MonoBehaviour:
   Cannon: {fileID: 4594530325800796}
   FireTransform: {fileID: 4217751858752670}
   velocity: 60
+  m_SFJ: {fileID: 114506744533831944}
 --- !u!135 &135781073206916294
 SphereCollider:
   m_ObjectHideFlags: 1

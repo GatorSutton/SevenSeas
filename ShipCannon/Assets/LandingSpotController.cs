@@ -8,6 +8,7 @@ public class LandingSpotController : MonoBehaviour {
     public Transform Cannon;
     public Transform FireTransform;
     public float velocity;
+    public ShipFiringJoystick m_SFJ;
 
     private float gravity;
     private float radianAngle;
@@ -21,6 +22,7 @@ public class LandingSpotController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = CalculateLandingPoint(CalculateLandingDistance(), FireTransform.position.y);
+        velocity = m_SFJ.m_LaunchVelocity;
 	}
 
     float CalculateLandingDistance()

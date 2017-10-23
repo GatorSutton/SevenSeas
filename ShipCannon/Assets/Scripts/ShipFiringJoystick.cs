@@ -75,9 +75,9 @@ public class ShipFiringJoystick : MonoBehaviour
 
         if (Input.GetButton(m_FiringButton))
         {
-            if (m_VerticalRelativeAngle > -45)
+            if (m_LaunchVelocity < 120)
             {
-                m_VerticalRelativeAngle -= .5f;
+                m_LaunchVelocity += 1;
             }
         }
 
@@ -89,7 +89,7 @@ public class ShipFiringJoystick : MonoBehaviour
                 Fire();
                 
             }
-            m_VerticalRelativeAngle = -15;
+            m_LaunchVelocity = 60;
         }
 
 

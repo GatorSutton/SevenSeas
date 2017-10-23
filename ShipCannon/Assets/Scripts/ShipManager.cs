@@ -70,14 +70,15 @@ public class ShipManager
 
         
         ShadingInWorldSpace SIWS =  GameObject.Find("Sea").GetComponent<ShadingInWorldSpace>();
-   
-        var transforms = m_Instance.GetComponentsInChildren<Transform>();
-       
-        foreach(Transform thing in transforms)
+        if (SIWS != null)
         {
-            if(thing.tag == "landingspot")
+            var transforms = m_Instance.GetComponentsInChildren<Transform>();
+            foreach (Transform thing in transforms)
             {
-                SIWS.addLandingPoint(thing.gameObject);
+                if (thing.tag == "landingspot")
+                {
+                    SIWS.addLandingPoint(thing.gameObject);
+                }
             }
         }
         
