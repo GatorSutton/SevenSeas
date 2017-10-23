@@ -42,18 +42,6 @@ public class ShipManager
         m_Rigidbody = m_Player.GetComponent<Rigidbody>();
     }
 
-    /*
-    void Update()
-    {
-        if (m_Player.activeSelf == false && !respawning)
-        {
-            respawning = true;
-            Invoke("Respawn", 5);
-            PF.CameraToSky();
-        }
-    }
-    */
-
     public void Setup()
     {
         m_Control = m_Instance.GetComponent<ShipControl>();
@@ -78,6 +66,21 @@ public class ShipManager
         //Set CC to the CC of the Ship Control using m_Instance
         //shading in world space landing points could be set up here as well
 
+        m_Control.PF = CC;
+
+        
+        ShadingInWorldSpace SIWS =  GameObject.Find("Sea").GetComponent<ShadingInWorldSpace>();
+   
+        var transforms = m_Instance.GetComponentsInChildren<Transform>();
+       
+        foreach(Transform thing in transforms)
+        {
+            if(thing.tag == "landingspot")
+            {
+                SIWS.addLandingPoint(thing.gameObject);
+            }
+        }
+        
     }
     
     public void Respawn()

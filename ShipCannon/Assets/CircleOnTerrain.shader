@@ -15,8 +15,8 @@
         CGPROGRAM
         #pragma surface surf Lambert
  
-		float4 _Array[2];
-		float _Distance[2];
+		float4 _Array[4];
+		float _Distance[4];
 		fixed4 _Color;
         sampler2D _MainTex;
         fixed3 _AreaColor;
@@ -35,7 +35,7 @@
             half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 		  
 
-		 for(int i = 0; i < 2; i++)
+		 for(int i = 0; i < 4; i++)
 		 {
 			_Distance[i] = distance(_Array[i], IN.worldPos);
 		 }
@@ -43,7 +43,7 @@
 		  
 
 			_Check = 0;
-			for(int i = 0; i < 2; i++)
+			for(int i = 0; i < 4; i++)
 			{
 				if(_Distance[i] > _Radius && _Distance[i] < (_Radius + _Border))
 					_Check = 1;
