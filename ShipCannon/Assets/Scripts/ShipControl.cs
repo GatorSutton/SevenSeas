@@ -4,7 +4,7 @@ using System.Collections;
 public class ShipControl : MonoBehaviour {
 
     public int m_PlayerNumber = 1;
-    public float m_Speed = 10f;
+
     public float m_CalculatedSpeed;
     public float m_TurnSpeed = 10f;
     public float m_SailMinValue;
@@ -13,22 +13,22 @@ public class ShipControl : MonoBehaviour {
     public float m_RutterMaxValue;
     public float m_AnchorSpeed;
     public float m_AnchorCooldownPeriod;
+    public float m_SpinOutTime;
+    public float m_SpinOutDegrees;
 
     public CameraControl PF;
 
 
     private ShipTreasure ST;
 
+    private bool m_SpinningOut = false;
+    private float m_Speed = 5;
+    private float m_OldSpeed = 1;
+    private float m_TargetSpeed = 1;
+    private float m_Time = 0;
     private float m_TreasureSpeedInhibitor;
     private Rigidbody m_Rigidbody;
-    private float m_SailInputValue;
-    private float m_TurnInputValue;
     private float m_SailValue = 1;
-
-    private bool m_AnchorDown = false;
-    private float m_AnchorTurn = 1;
-    private float m_AnchorMove = 1;
-    private float m_Time = 0;
 
     public float RutterValue
     {
@@ -36,10 +36,21 @@ public class ShipControl : MonoBehaviour {
         get { return m_RutterValue; }
     }
 
+    public float RutterChange
+    {
+        set { m_RutterChange = value; }
+        get { return m_RutterChange; }
+    }
+
+    private float m_SpinOutTimeLeft;
+    private float[] m_rutterChanges = new float[20];
+    private int m_RutterIndex = 0;
+    private float m_RutterChange = 0;
     private float m_RutterValue = 0;
-    private float anchorTimeStamp = 0;
     private string m_AnchorButton;
     private string m_SailButton;
+
+
 
     
     
@@ -50,7 +61,6 @@ public class ShipControl : MonoBehaviour {
 
     }
 
-	// Use this for initialization
 	void Start ()
     {
         ST = GetComponent<ShipTreasure>();
@@ -58,12 +68,10 @@ public class ShipControl : MonoBehaviour {
         m_SailButton = "Sail" + m_PlayerNumber;
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
-       
 
-        if(Input.GetButtonDown(m_SailButton) && (m_SailValue==m_SailMinValue))
+        if(Input.GetButtonDown(m_SailButton))
         {
             if (m_SailValue == m_SailMinValue)
             {
@@ -78,30 +86,9 @@ public class ShipControl : MonoBehaviour {
                 m_RutterMinValue = -600f;
             }
         }
-        else if(Input.GetButtonDown(m_SailButton) && (m_SailValue==m_SailMaxValue))
-        {
-                m_SailValue = m_SailMinValue;
-                m_RutterMaxValue = 600f;
-                m_RutterMinValue = -600f;
-        }
 
         if (Input.GetButtonDown(m_AnchorButton))
         {
-            /*
-            if (anchorTimeStamp <= Time.time)
-            {
-                anchorTimeStamp = Time.time + m_AnchorCooldownPeriod;
-                m_AnchorDown = !m_AnchorDown;
-                if (m_AnchorDown)
-                {
-                  //  PF.CameraToLeft();
-                }
-                else
-                {
-                  //  PF.CameraToShip();
-                }
-            }
-            */
 
             if (PF.m_Position != CameraControl.Position.Above)
             {
@@ -111,24 +98,29 @@ public class ShipControl : MonoBehaviour {
             {
                 PF.CameraToShip();
             }
-            
 
         }
-
-
     }
 
     void FixedUpdate()
     {
-        Move();
-        Turn();
-        AnchorControl();
+        if (!m_SpinningOut)
+        {
+            Move();
+            Turn();
+        }
         WeightOnShip();
+        SpeedAdjust();
+    }
+
+    private void SpeedAdjust()
+    {
+        m_Speed = Mathf.Lerp(m_OldSpeed, m_TargetSpeed, m_Time);
+        m_CalculatedSpeed = m_SailValue * m_Speed * Time.deltaTime * m_TreasureSpeedInhibitor;
     }
 
     private void Move()
     {
-        m_CalculatedSpeed = m_SailValue * m_Speed * Time.deltaTime * m_AnchorMove * m_TreasureSpeedInhibitor;
         Vector3 movement = -transform.right * m_CalculatedSpeed;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
     }
@@ -138,35 +130,11 @@ public class ShipControl : MonoBehaviour {
         m_RutterValue = Mathf.Max(m_RutterValue, m_RutterMinValue);
         m_RutterValue = Mathf.Min(m_RutterValue, m_RutterMaxValue);
         
-        float turn = m_RutterValue * m_TurnSpeed * Time.deltaTime * m_AnchorTurn;
+        float turn = m_RutterValue * m_TurnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
     }
 
-    private void AnchorControl()
-    {
-        if(m_AnchorDown == true)
-        {
-            m_Time += Time.deltaTime * m_AnchorSpeed;
-
-            if (m_Time < 1)
-            {
-                m_AnchorMove = Mathf.Lerp(1, 0, m_Time);
-                m_AnchorTurn = Mathf.Lerp(1, 4, m_Time);
-            }
-            else
-            {
-                m_AnchorTurn = 0;
-            }
-           
-        }
-        else
-        {
-            m_Time = 0;
-            m_AnchorMove = 1f;
-            m_AnchorTurn = 1f;
-        }
-    }
 
     private void WeightOnShip()
     {
@@ -179,6 +147,56 @@ public class ShipControl : MonoBehaviour {
             m_TreasureSpeedInhibitor = 1f;
         }
     }
+
+    public void UpdateRutter()
+    {
+        m_rutterChanges[m_RutterIndex] = m_RutterChange;
+        if (m_RutterIndex < m_rutterChanges.Length - 1)
+        {
+            m_RutterIndex++;
+        }
+        else
+        {
+            m_RutterIndex = 0;
+        }
+
+        float total = 0;
+        for (int i = 0; i < m_rutterChanges.Length; i++)
+        {
+            total += m_rutterChanges[i];
+        }
+        if( Mathf.Abs(total) > 400 && !m_SpinningOut)
+        { 
+            //if cooldown and current speed are appropriate for a spinout
+            StartCoroutine(SpinOut());
+        }
+    }
+
+    private IEnumerator SpinOut()
+    {
+        m_SpinningOut = true;
+        m_SpinOutTimeLeft = m_SpinOutTime;
+        //hold intial direction for set amount of time and turn ship set amount of degrees during that time
+        m_rutterChanges = new float[20];
+        print("spinout");
+        Vector3 direction = -transform.right;
+
+        while (m_SpinOutTimeLeft >= 0.0f)
+        {
+            m_SpinOutTimeLeft -= Time.deltaTime;
+            m_Rigidbody.MovePosition(m_Rigidbody.position + direction*m_CalculatedSpeed);
+           m_Rigidbody.MoveRotation(m_Rigidbody.rotation * Quaternion.Euler(0f,m_SpinOutDegrees/m_SpinOutTime*Time.deltaTime,0f));
+            yield return null;
+        }
+
+        m_SpinningOut = false;
+        m_RutterValue = 0;
+        print("doneSpinning");
+
+        
+    }
+
+
 
 
 

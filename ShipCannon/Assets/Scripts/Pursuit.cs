@@ -52,7 +52,7 @@ public class Pursuit : MonoBehaviour {
     {
         t -= .01F;
         t = Mathf.Clamp(t, 0, 1);
-        SC.m_Speed = Mathf.Lerp(normalSpeed, pursuitSpeed, t);
+     //   SC.m_Speed = Mathf.Lerp(normalSpeed, pursuitSpeed, t);
     }
 
     private void cameraAdjuster()
